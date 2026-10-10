@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stellar-refrain.github.io/sitemap.xml
