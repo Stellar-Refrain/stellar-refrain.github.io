@@ -14,14 +14,20 @@ Open <http://127.0.0.1:4173/>. The site can also be opened directly from `index.
 
 ## Publish on GitHub Pages
 
-1. Add these files to the GitHub repository you want to use, on its `main` branch.
+Repository: [Stellar-Refrain/stellar-refrain.github.io](https://github.com/Stellar-Refrain/stellar-refrain.github.io).
+
+Live homepage: <https://stellar-refrain.github.io/>.
+
+The repository name makes this the organization's root GitHub Pages site.
+
+1. Commit changes to the repository's `main` branch.
 2. In **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source.
 3. Push to `main`, or run **Deploy homepage to GitHub Pages** manually from the Actions tab.
 4. The deployment's `github-pages` environment shows the published URL.
 
 The included `.github/workflows/pages.yml` copies only `index.html`, `.nojekyll`, and `assets/` to the published artifact. Asset links are relative, so both `https://owner.github.io/` and `https://owner.github.io/repository/` work. If your default branch isn't `main`, change the workflow's `branches` value. A custom domain can be added in the repository's Pages settings later.
 
-This folder has not yet been connected to a remote repository or published.
+The local `origin` remote points to the repository above. Pushes to `main` publish automatically; binary download links remain placeholders until configured.
 
 Reference: [GitHub's custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
