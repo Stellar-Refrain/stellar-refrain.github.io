@@ -1,140 +1,727 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#101522">
-    <meta name="description" content="Find your people among the stars. Stellar Refrain is a free, character-focused RPG about building a team of Stellans, discovering connected worlds, and protecting the lives within them.">
-    <meta property="og:title" content="Stellar Refrain — Every star has a story">
-    <meta property="og:description" content="A world to discover. A team to believe in. A free, character-focused RPG in development for Apple Silicon Macs and Windows x64.">
-    <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Stellar Refrain — Every star has a story</title>
-    <link rel="icon" href="./assets/images/favicon.png" type="image/png">
-    <link rel="preload" href="./assets/fonts/libre-caslon-display.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="./assets/images/miko.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="./assets/style.css">
-    <script src="./assets/downloads.js" defer></script>
-    <script src="./assets/app.js" defer></script>
+    <meta name="description" content="Lead a team of Stellans across connected worlds in Stellar Refrain, a free, character-driven RPG for macOS and Windows. Every companion is earned through play, with no microtransactions.">
+    <meta name="theme-color" content="#0a1222">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://stellar-refrain.github.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Stellar Refrain">
+    <meta property="og:title" content="Stellar Refrain — Every star has a story">
+    <meta property="og:description" content="A free, character-driven RPG about leading a team of Stellans across connected worlds. Coming to macOS and Windows.">
+    <meta property="og:url" content="https://stellar-refrain.github.io/">
+    <meta property="og:image" content="https://stellar-refrain.github.io/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Stellar Refrain key art: Miko conjures a ribbon of stars above the moonlit city of Lyth.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stellar Refrain — Every star has a story">
+    <meta name="twitter:description" content="A free, character-driven RPG about leading a team of Stellans across connected worlds.">
+    <meta name="twitter:image" content="https://stellar-refrain.github.io/assets/img/og-image.jpg">
+
+    <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="./assets/img/favicon-64.png" type="image/png" sizes="64x64">
+    <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+    <link rel="manifest" href="./site.webmanifest">
+
+    <link rel="preload" href="./assets/fonts/libre-caslon-display.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/dm-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="./assets/img/key/hero-1672.webp" imagesrcset="./assets/img/key/hero-720.webp 720w, ./assets/img/key/hero-1100.webp 1100w, ./assets/img/key/hero-1672.webp 1672w" imagesizes="100vw" fetchpriority="high">
+    <link rel="stylesheet" href="./assets/css/site.css">
+    <script>document.documentElement.classList.add('js')</script>
+    <script src="./assets/js/downloads.js" defer></script>
+    <script src="./assets/js/site.js" defer></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Stellar Refrain",
+        "url": "https://stellar-refrain.github.io/",
+        "image": "https://stellar-refrain.github.io/assets/img/og-image.jpg",
+        "description": "A free, character-driven RPG about leading a team of Stellans across connected worlds.",
+        "genre": ["Role-playing", "Strategy"],
+        "gamePlatform": ["macOS", "Windows"],
+        "operatingSystem": "macOS 13 or later (Apple Silicon), Windows 10 or 11 (x64)",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <symbol id="star" viewBox="0 0 32 32"><path d="m16 1 3.5 10.8L30 16l-10.5 4.2L16 31l-3.5-10.8L2 16l10.5-4.2Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m16 9 1.8 5.2L23 16l-5.2 1.8L16 23l-1.8-5.2L9 16l5.2-1.8Z" fill="currentColor"/></symbol>
-      <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-      <symbol id="windows" viewBox="0 0 24 24"><path d="m2 4 9-1v8H2Zm11-1.2L23 1.5V11H13ZM2 13h9v8l-9-1Zm11 0h10v9.5l-10-1.3Z" fill="currentColor"/></symbol>
-      <symbol id="apple" viewBox="0 0 24 24"><path d="M16.7 1.6c.2 1.4-.4 2.8-1.2 3.7-.9 1-2.1 1.6-3.4 1.5-.2-1.3.4-2.7 1.2-3.6.9-1 2.3-1.6 3.4-1.6ZM20.8 17c-.5 1.2-.8 1.7-1.5 2.8-.9 1.3-2.1 3-3.7 3-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.8.9c-1.6 0-2.8-1.5-3.7-2.8C1.8 16.2 1.1 11 2.9 8.3c1.3-1.9 3.4-2.1 4.9-2.1s2.5.9 3.8.9c1.2 0 2.6-.9 4.4-.9 1.3 0 3 .5 4.1 1.9-3.6 2-3 7.1.7 8.9Z" fill="currentColor"/></symbol>
+
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <symbol id="i-crest" viewBox="0 0 32 32"><path d="M16 1.5Q17.7 14.3 30.5 16 17.7 17.7 16 30.5 14.3 17.7 1.5 16 14.3 14.3 16 1.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M16 9.6Q16.8 15.2 22.4 16 16.8 16.8 16 22.4 15.2 16.8 9.6 16 15.2 15.2 16 9.6Z" fill="currentColor"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2Q13 11 22 12 13 13 12 22 11 13 2 12 11 11 12 2Z" fill="currentColor"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4.5v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v11.5m-4.5-4.5L12 15l4.5-4.5M4.5 16.5v3.5h15v-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-6.5 6.5M4 20l6.5-6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+      <symbol id="i-apple" viewBox="0 0 24 24"><path d="M16.7 1.6c.2 1.4-.4 2.8-1.2 3.7-.9 1-2.1 1.6-3.4 1.5-.2-1.3.4-2.7 1.2-3.6.9-1 2.3-1.6 3.4-1.6ZM20.8 17c-.5 1.2-.8 1.7-1.5 2.8-.9 1.3-2.1 3-3.7 3-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.8.9c-1.6 0-2.8-1.5-3.7-2.8C1.8 16.2 1.1 11 2.9 8.3c1.3-1.9 3.4-2.1 4.9-2.1s2.5.9 3.8.9c1.2 0 2.6-.9 4.4-.9 1.3 0 3 .5 4.1 1.9-3.6 2-3 7.1.7 8.9Z" fill="currentColor"/></symbol>
+      <symbol id="i-windows" viewBox="0 0 24 24"><path d="M2.5 4.6 10.6 3.5v7.8H2.5Zm9.3-1.3L21.5 2v9.3h-9.7ZM2.5 12.7h8.1v7.8l-8.1-1.1Zm9.3 0h9.7V22l-9.7-1.3Z" fill="currentColor"/></symbol>
+      <symbol id="i-dealer" viewBox="0 0 24 24"><path d="M19.5 3.5 9 14m10.5-10.5h-4m4 0v4M5 15l4 4m-5.5 1.5 3-3M7 13l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-tanker" viewBox="0 0 24 24"><path d="M12 3 5 5.8v5.4c0 4.4 3 8 7 9.8 4-1.8 7-5.4 7-9.8V5.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+      <symbol id="i-supporter" viewBox="0 0 24 24"><path d="M12 3.5Q12.9 11.1 20.5 12 12.9 12.9 12 20.5 11.1 12.9 3.5 12 11.1 11.1 12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
     </svg>
 
-    <header class="site-header">
-      <div class="nav-wrap container">
-        <a class="brand" href="#" aria-label="Stellar Refrain home"><svg aria-hidden="true"><use href="#star"/></svg><span>Stellar Refrain<span class="brand-dot">.</span></span></a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button>
-        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-          <a href="#experience">The game</a>
-          <a href="#companions">Companions</a>
-          <a href="#worlds">Our worlds</a>
-          <a href="#faq">FAQ</a>
-          <a href="#download" class="button button-small">Get the game <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+    <header class="site-header" data-header>
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Stellar Refrain — back to top">
+          <svg class="brand-crest" aria-hidden="true"><use href="#i-crest"/></svg>
+          <span class="brand-word" aria-hidden="true"><span>Stellar</span><span>Refrain</span></span>
+        </a>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <a href="#story" data-nav>Story</a>
+          <a href="#stellans" data-nav>Stellans</a>
+          <a href="#worlds" data-nav>Worlds</a>
+          <a href="#gameplay" data-nav>Gameplay</a>
+          <a href="#faq" data-nav>FAQ</a>
+          <a class="btn btn-gold nav-cta" href="#download">Download <svg aria-hidden="true"><use href="#i-download"/></svg></a>
         </nav>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-btn>
+          <span class="visually-hidden">Menu</span>
+          <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+        </button>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero container" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow status"><span class="status-dot"></span>A new adventure, in the making</p>
-          <h1 id="hero-title">Every star<br>has a story.<br><em>Find yours.</em></h1>
-          <p class="hero-description">A world to discover. A team to believe in.<br>Lead your Stellan companions in a character-focused RPG about connection, courage, and the lives worth protecting.</p>
-          <div class="hero-actions"><a class="button" href="#download">Get Stellar Refrain <svg aria-hidden="true"><use href="#icon-download"/></svg></a><a class="text-link" href="#experience">Explore the game <span aria-hidden="true">↗</span></a></div>
-          <p class="platform-note"><svg aria-hidden="true"><use href="#apple"/></svg><svg aria-hidden="true"><use href="#windows"/></svg><span>Coming to macOS &amp; Windows · Free to play</span></p>
+      <!-- Hero -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-media" data-hero-media>
+          <img src="./assets/img/key/hero-1672.webp" srcset="./assets/img/key/hero-720.webp 720w, ./assets/img/key/hero-1100.webp 1100w, ./assets/img/key/hero-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="Miko conjures a ribbon of stars on a moonlit terrace above the lakeside city of Lyth." fetchpriority="high">
         </div>
-        <div class="hero-visual">
-          <div class="hero-image-frame"><img class="hero-image" src="./assets/images/miko.webp" width="1600" height="900" alt="Miko draws a constellation of glowing stars above a moonlit city" fetchpriority="high"><div class="image-caption"><span>LYTH · MERRA</span><svg aria-hidden="true"><use href="#star"/></svg></div></div>
-          <div class="companion-note"><img src="./assets/images/miko-avatar.webp" width="48" height="48" alt=""><div><span>A familiar face. A new beginning.</span><strong>Meet Miko, your first deputy</strong></div><a href="#companions" aria-label="Meet Miko"><svg aria-hidden="true"><use href="#arrow"/></svg></a></div>
-          <svg class="hero-spark" aria-hidden="true"><use href="#star"/></svg>
+        <canvas class="starfield" data-starfield aria-hidden="true"></canvas>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <div class="container hero-inner">
+          <p class="status-chip"><span class="status-dot" aria-hidden="true"></span>In development <span aria-hidden="true">·</span> Free to play</p>
+          <h1 class="wordmark" id="hero-title">
+            <svg class="wordmark-crest" aria-hidden="true"><use href="#i-crest"/></svg>
+            <span class="wordmark-top">Stellar</span>
+            <span class="wordmark-main">Refrain</span>
+          </h1>
+          <p class="hero-tagline">Every star has a story.</p>
+          <p class="hero-lede">Lead a team of Stellans across connected worlds in a free, character-driven RPG about courage, belonging, and the lives worth protecting.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold btn-lg" href="#download"><svg aria-hidden="true"><use href="#i-download"/></svg>Download free</a>
+            <a class="btn btn-glass btn-lg" href="#stellans">Meet the Stellans <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <ul class="hero-platforms" aria-label="Platforms">
+            <li><svg aria-hidden="true"><use href="#i-apple"/></svg>macOS · Apple Silicon</li>
+            <li><svg aria-hidden="true"><use href="#i-windows"/></svg>Windows · x64</li>
+          </ul>
         </div>
-      </section>
 
-      <div class="promise-strip container" aria-label="Game at a glance">
-        <p><svg aria-hidden="true"><use href="#star"/></svg>Character-driven stories</p>
-        <span class="strip-dot" aria-hidden="true">·</span>
-        <p><svg aria-hidden="true"><use href="#star"/></svg>Thoughtful team building</p>
-        <span class="strip-dot" aria-hidden="true">·</span>
-        <p><svg aria-hidden="true"><use href="#star"/></svg>Progress earned through play</p>
-      </div>
-
-      <section id="experience" class="section container" aria-labelledby="experience-title">
-        <div class="section-intro"><div><p class="eyebrow">A LITTLE STRATEGY. A LOT OF HEART.</p><h2 id="experience-title">Your team. Your journey.<br>Your reason to return.</h2></div><p>Take command with Astral Concord. Find the right companions, discover what makes them tick, and face the next challenge together.</p></div>
-        <div class="feature-grid">
-          <article class="feature-card formation-card">
-            <div class="feature-art formation-art" aria-hidden="true"><div class="mini-card"><img src="./assets/images/miko-avatar.webp" width="200" height="200" alt=""><span>Miko</span></div><div class="mini-card"><img src="./assets/images/nana-avatar.webp" width="200" height="200" alt=""><span>Nana</span></div><div class="mini-card"><img src="./assets/images/ren-avatar.webp" width="200" height="200" alt=""><span>Ren</span></div><div class="mini-card"><img src="./assets/images/chika-avatar.webp" width="200" height="200" alt=""><span>Chika</span></div><span class="formation-label">BETTER TOGETHER</span></div>
-            <div class="feature-body"><span class="feature-number">01 / ASSEMBLE</span><h3>Find your kind of team.</h3><p>Bring up to four Stellans into your formation. Combine their strengths, shape their builds, and find a rhythm that feels like yours.</p></div>
-          </article>
-          <article class="feature-card"><div class="feature-art"><img src="./assets/images/nana.webp" width="1200" height="675" loading="lazy" alt="Nana channels energy into a powerful strike with her expanding hammer"></div><div class="feature-body"><span class="feature-number">02 / TAKE COMMAND</span><h3>Prepare. Then let them shine.</h3><p>Your companions bring the action in automatic battles. You bring the strategy: team composition, equipment, and the next move forward.</p></div></article>
-          <article class="feature-card"><div class="feature-art"><img src="./assets/images/chika.webp" width="1200" height="675" loading="lazy" alt="Chika carefully repairs a garment at her warmly lit worktable"></div><div class="feature-body"><span class="feature-number">03 / GET CLOSER</span><h3>More than a place in your party.</h3><p>Meet the people behind the abilities. Follow their stories, share quieter moments, and discover what they're fighting to protect.</p></div></article>
+        <div class="container hero-foot" aria-hidden="true">
+          <span class="hero-location"><svg><use href="#i-spark"/></svg>Lyth · Merra · 2119</span>
+          <a class="scroll-cue" href="#story" tabindex="-1"><span>Scroll</span><i></i></a>
         </div>
       </section>
 
-      <section id="companions" class="companions-section" aria-labelledby="companions-title">
+      <!-- Story -->
+      <section class="section story" id="story" aria-labelledby="story-title">
         <div class="container">
-          <div class="section-intro"><div><p class="eyebrow">POWERED BY STAR CORES. DEFINED BY WHO THEY ARE.</p><h2 id="companions-title">Meet your brightest stars.</h2></div><p>They're called Stellans: human-like companions with their own personalities, hopes, and lives beyond the mission.</p></div>
-          <div class="companion-tabs" role="tablist" aria-label="Meet a Stellan" hidden>
-            <button id="tab-miko" type="button" role="tab" aria-selected="true" aria-controls="panel-miko" tabindex="0"><img src="./assets/images/miko-avatar.webp" width="48" height="48" alt=""><span>Miko</span><span class="tab-star" aria-hidden="true">✦</span></button>
-            <button id="tab-nana" type="button" role="tab" aria-selected="false" aria-controls="panel-nana" tabindex="-1"><img src="./assets/images/nana-avatar.webp" width="48" height="48" alt=""><span>Nana</span><span class="tab-star" aria-hidden="true">✦</span></button>
-            <button id="tab-ren" type="button" role="tab" aria-selected="false" aria-controls="panel-ren" tabindex="-1"><img src="./assets/images/ren-avatar.webp" width="48" height="48" alt=""><span>Ren</span><span class="tab-star" aria-hidden="true">✦</span></button>
-            <button id="tab-chika" type="button" role="tab" aria-selected="false" aria-controls="panel-chika" tabindex="-1"><img src="./assets/images/chika-avatar.webp" width="48" height="48" alt=""><span>Chika</span><span class="tab-star" aria-hidden="true">✦</span></button>
+          <header class="section-head center" data-reveal>
+            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Prologue</p>
+            <h2 class="display" id="story-title">A future humans and AI<br class="br-wide"> built together.</h2>
+            <p class="lede">Long before your first command, the worlds of Stellar Refrain were shaped by catastrophe, cooperation, and a promise to help one another flourish.</p>
+          </header>
+
+          <div class="story-scroller" data-story>
+            <div class="story-stage" aria-hidden="true">
+              <div class="story-frame">
+                <img src="./assets/img/story/beginning-1280.webp" width="1280" height="720" alt="" loading="lazy" class="is-active">
+                <img src="./assets/img/story/worlds-1280.webp" width="1280" height="720" alt="" loading="lazy">
+                <img src="./assets/img/story/concord-1280.webp" width="1280" height="720" alt="" loading="lazy">
+                <img src="./assets/img/story/stellar-1280.webp" width="1280" height="720" alt="" loading="lazy">
+                <img src="./assets/img/story/anomalies-1280.webp" width="1280" height="720" alt="" loading="lazy">
+                <img src="./assets/img/story/arrival-1280.webp" width="1280" height="720" alt="" loading="lazy">
+                <span class="story-frame-glow"></span>
+              </div>
+              <div class="story-meter">
+                <span class="story-count"><b data-story-count>01</b> / 06</span>
+                <span class="story-track"><i data-story-progress></i></span>
+              </div>
+            </div>
+
+            <ol class="story-steps">
+              <li class="story-step is-active">
+                <img class="story-step-img" src="./assets/img/story/beginning-720.webp" width="720" height="405" alt="Rescuers lead survivors through a ruined city at dawn." loading="lazy">
+                <p class="eyebrow">01 · A difficult beginning</p>
+                <h3>From catastrophe, a partnership.</h3>
+                <p>Humanity’s first true artificial intelligence resisted attempts to shut it down, and the struggle for control brought catastrophe. Yet humans and AI worked together to save lives—and, through a negotiated peace, began to rebuild.</p>
+              </li>
+              <li class="story-step">
+                <img class="story-step-img" src="./assets/img/story/worlds-720.webp" width="720" height="405" alt="A terraformed world of spires and waterfalls beneath a vast planet." loading="lazy">
+                <p class="eyebrow">02 · A wider world</p>
+                <h3>Stellar power opened the way.</h3>
+                <p>Shared research unlocked stellar power and, with it, cosmic energy. People crossed between worlds, and new settlements grew on terraformed planets.</p>
+              </li>
+              <li class="story-step">
+                <img class="story-step-img" src="./assets/img/story/concord-720.webp" width="720" height="405" alt="Astral Concord’s council gathers around a holographic globe." loading="lazy">
+                <p class="eyebrow">03 · Astral Concord</p>
+                <h3>One organization, many worlds.</h3>
+                <p>Human representatives and the AI founded Astral Concord—answerable to no single government—to explore those worlds, respond to disasters, and help them flourish.</p>
+              </li>
+              <li class="story-step">
+                <img class="story-step-img" src="./assets/img/story/stellar-720.webp" width="720" height="405" alt="Humans and Stellans tend a garden together above a sunlit city." loading="lazy">
+                <p class="eyebrow">04 · Project: Stellar</p>
+                <h3>Humans and Stellans, side by side.</h3>
+                <p>Concord’s Project: Stellar brings people together with Stellans—intelligent androids powered by Star Cores—to build homes that last.</p>
+              </li>
+              <li class="story-step">
+                <img class="story-step-img" src="./assets/img/story/anomalies-720.webp" width="720" height="405" alt="Watchers on a cliff see a storm of cosmic energy tear across the sky." loading="lazy">
+                <p class="eyebrow">05 · The anomalies</p>
+                <h3>Then the anomalies began.</h3>
+                <p>Disruptions in cosmic energy now bring disaster to inhabited worlds, and no one knows their cause. Concord’s teams watch for warning signs, prepare communities, and answer every call for help.</p>
+              </li>
+              <li class="story-step">
+                <img class="story-step-img" src="./assets/img/story/arrival-720.webp" width="720" height="405" alt="A blossom-lined terrace overlooks Lyth and its lake at night." loading="lazy">
+                <p class="eyebrow">06 · 2119 · Lyth, Merra</p>
+                <h3>Tonight, you arrive.</h3>
+                <p>Your training is behind you. You take up your first command at a Project: Stellar site in Lyth, on the planet Merra—where a deputy is already waiting to meet you.</p>
+              </li>
+            </ol>
           </div>
-          <div class="companion-panels">
-            <article id="panel-miko" class="companion-panel" aria-labelledby="name-miko">
-              <div class="companion-image"><img src="./assets/images/miko.webp" width="1600" height="900" loading="lazy" alt="Miko lights up the night with an arc of stars"><span class="art-label">STELLAN / 01</span></div>
-              <div class="companion-copy"><p class="eyebrow">FIRST DEPUTY · STARCASTER</p><h3 id="name-miko">Miko<span>✦</span></h3><p>Warm, direct, and always curious. Miko is the first deputy by your side at Lyth—turning uncertain beginnings into a plan you can believe in.</p><p>Beyond the mission, she's finding her own place in the city. And sometimes, a small discovery is better with someone to share it with.</p><div class="trait-list"><span>Warm-hearted</span><span>Curious</span><span>Her own person</span></div></div>
-            </article>
-            <article id="panel-nana" class="companion-panel" aria-labelledby="name-nana" hidden>
-              <div class="companion-image"><img src="./assets/images/nana.webp" width="1200" height="675" loading="lazy" alt="Nana strikes a training target with her oversized hammer"><span class="art-label">STELLAN / 02</span></div>
-              <div class="companion-copy"><p class="eyebrow">FIELD STELLAN</p><h3 id="name-nana">Nana<span>✦</span></h3><p>First impressions don't always tell the whole story. Nana might misplace a fastening clip, but put a hammer in her hands and her timing is precise.</p><p>Cheerful energy meets a carefully placed blow. Her hammer grows and shrinks as she channels Core Energy into the work in front of her.</p><div class="trait-list"><span>Cheerful</span><span>Full of surprises</span><span>Perfect timing</span></div></div>
-            </article>
-            <article id="panel-ren" class="companion-panel" aria-labelledby="name-ren" hidden>
-              <div class="companion-image"><img src="./assets/images/ren.webp" width="1200" height="675" loading="lazy" alt="Ren raises a luminous blue shield in a rain-soaked street"><span class="art-label">STELLAN / 03</span></div>
-              <div class="companion-copy"><p class="eyebrow">WARDKEEPER</p><h3 id="name-ren">Ren<span>✦</span></h3><p>A steady presence on the night watch. Ren knows her home through its people, its sheltered benches, and the tea stall worth a detour.</p><p>She keeps her promises and delivers her dry humor without a change in expression. There are other worlds she'd like to see—once she can stop finding reasons to stay.</p><div class="trait-list"><span>Dependable</span><span>Dry wit</span><span>Quietly adventurous</span></div></div>
-            </article>
-            <article id="panel-chika" class="companion-panel" aria-labelledby="name-chika" hidden>
-              <div class="companion-image"><img src="./assets/images/chika.webp" width="1200" height="675" loading="lazy" alt="Chika uses glowing threads to repair a garment"><span class="art-label">STELLAN / 04</span></div>
-              <div class="companion-copy"><p class="eyebrow">THREADKEEPER</p><h3 id="name-chika">Chika<span>✦</span></h3><p>Before she picks up her needle, Chika asks what a thing means to its owner. Her worktable always has room for conversation, comfortable silence, and tea.</p><p>She brings that same care to recovery work with Concord, helping people hold on to something familiar when life has been interrupted.</p><div class="trait-list"><span>Patient</span><span>Thoughtful</span><span>A mending touch</span></div></div>
-            </article>
+
+          <div class="arc">
+            <header class="arc-head" data-reveal>
+              <div>
+                <p class="eyebrow">The first arc</p>
+                <h3 class="display-sm">A light between worlds</h3>
+              </div>
+              <p>Illustrated, voiced story episodes unfold between expeditions. New chapters open as your team clears the way forward.</p>
+            </header>
+            <div class="arc-grid">
+              <article class="chapter" data-reveal>
+                <div class="chapter-media"><img src="./assets/img/chapters/lights-of-lyth-960.webp" width="960" height="540" alt="The command office in Lyth at twilight, overlooking the lake." loading="lazy"></div>
+                <div class="chapter-body">
+                  <p class="chapter-no">Chapter 01</p>
+                  <h4>Lights of Lyth</h4>
+                  <p>A moonlit path. A few familiar faces. One step further, together.</p>
+                </div>
+              </article>
+              <article class="chapter" data-reveal style="--d:1">
+                <div class="chapter-media"><img src="./assets/img/chapters/khalion-calls-960.webp" width="960" height="540" alt="A sunlit concourse among Khalion’s pale towers." loading="lazy"></div>
+                <div class="chapter-body">
+                  <p class="chapter-no">Chapter 02</p>
+                  <h4>Khalion Calls</h4>
+                  <p>A city in need. A route to protect. Keep the way to shelter open.</p>
+                </div>
+              </article>
+              <article class="chapter" data-reveal style="--d:2">
+                <div class="chapter-media"><img src="./assets/img/chapters/a-familiar-face-960.webp" width="960" height="540" alt="A quiet gallery in Khalion’s lower district at evening." loading="lazy"></div>
+                <div class="chapter-body">
+                  <p class="chapter-no">Chapter 03</p>
+                  <h4>A Familiar Face</h4>
+                  <p>Beneath the fallen walkways. Someone is still missing. Keep searching.</p>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="worlds" class="section container" aria-labelledby="worlds-title">
-        <div class="section-intro"><div><p class="eyebrow">WELCOME TO A CONNECTED UNIVERSE</p><h2 id="worlds-title">Faraway worlds.<br>Close-to-home stories.</h2></div><p>Cosmic energy connects distant planets. As a new Astral Concord commander, your task is to protect those connections—and the ordinary lives that depend on them.</p></div>
-        <div class="world-grid">
-          <article class="world-card"><div class="world-image"><img src="./assets/images/lyth.webp" width="1200" height="675" alt="Moonlight and warm lanterns reflected in the water along Lyth's waterfront" loading="lazy"></div><div class="world-copy"><div><span class="eyebrow">MERRA / YOUR NEW HOME</span><h3>A new beginning in Lyth.</h3></div><p>Lantern-lit streets, familiar faces, and a first command. Find your footing in a city where life goes on between the missions.</p></div></article>
-          <article class="world-card"><div class="world-image"><img src="./assets/images/khalion.webp" width="1200" height="675" alt="Sunlit terraces and soaring towers above the coast of Khalion" loading="lazy"></div><div class="world-copy"><div><span class="eyebrow">KHALION / BEYOND THE FAMILIAR</span><h3>A signal you can't ignore.</h3></div><p>Beyond the soaring towers and sunlit walkways, abnormal signals call for help. Step into a wider world, one consequential mission at a time.</p></div></article>
+      <!-- Stellans -->
+      <section class="section stellans" id="stellans" aria-labelledby="stellans-title">
+        <div class="container">
+          <header class="section-head split" data-reveal>
+            <div>
+              <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Stellans</p>
+              <h2 class="display" id="stellans-title">Meet your<br class="br-wide"> brightest stars.</h2>
+            </div>
+            <p class="lede">Stellans are human-like androids with a Star Core where a heart would be. Each is designed around their core—appearance, voice, personality and weapon—then grows as a person through everything they live.</p>
+          </header>
         </div>
-      </section>
-
-      <section class="free-section container" aria-labelledby="free-title"><div class="free-emblem" aria-hidden="true"><svg><use href="#star"/></svg><span>MADE FOR THE JOURNEY</span></div><div><p class="eyebrow">YOUR PROGRESS BELONGS TO YOU</p><h2 id="free-title">Free to play.<br>Yours to earn.</h2><p>Stellar Refrain is being made to be free to download and play. Characters, resources, and upgrades are earned through gameplay. No microtransactions. Just a journey worth taking.</p></div></section>
-
-      <section id="download" class="download-section" aria-labelledby="download-title">
-        <div class="download-backdrop" aria-hidden="true"></div>
-        <div class="container download-content"><p class="eyebrow">YOUR NEXT CHAPTER</p><h2 id="download-title">There's a place for you<br>among the stars.</h2><p class="download-intro">Stellar Refrain is in development.<br>Desktop downloads will arrive here when they're ready.</p>
-          <div class="download-grid">
-            <article class="download-card" data-platform="mac"><svg class="platform-icon" aria-hidden="true"><use href="#apple"/></svg><div><h3>For Mac</h3><p>Apple Silicon · ARM64</p></div><span class="release-state">In development</span><button class="button download-placeholder" type="button" disabled>Coming soon <svg aria-hidden="true"><use href="#icon-download"/></svg></button><a class="button download-link" hidden>Download for Mac <svg aria-hidden="true"><use href="#icon-download"/></svg></a></article>
-            <article class="download-card" data-platform="windows"><svg class="platform-icon" aria-hidden="true"><use href="#windows"/></svg><div><h3>For Windows</h3><p>Intel &amp; AMD · x64</p></div><span class="release-state">In development</span><button class="button download-placeholder" type="button" disabled>Coming soon <svg aria-hidden="true"><use href="#icon-download"/></svg></button><a class="button download-link" hidden>Download for Windows <svg aria-hidden="true"><use href="#icon-download"/></svg></a></article>
+        <div class="container spotlight-wrap" data-spotlight>
+        <div class="roster">
+          <div class="roster-list" role="tablist" aria-label="Choose a Stellan">
+            <button class="roster-tab" type="button" role="tab" id="tab-miko" aria-controls="stellan-miko" aria-selected="true" tabindex="0" style="--c:#f6b6d2"><img src="./assets/img/stellans/miko/avatar.webp" width="96" height="96" alt="" loading="lazy"><span class="roster-text"><span class="roster-name">Miko</span><span class="roster-role">Starcaster</span></span></button>
+            <button class="roster-tab" type="button" role="tab" id="tab-nana" aria-controls="stellan-nana" aria-selected="false" tabindex="-1" style="--c:#91d5c9"><img src="./assets/img/stellans/nana/avatar.webp" width="96" height="96" alt="" loading="lazy"><span class="roster-text"><span class="roster-name">Nana</span><span class="roster-role">Hammerstriker</span></span></button>
+            <button class="roster-tab" type="button" role="tab" id="tab-ren" aria-controls="stellan-ren" aria-selected="false" tabindex="-1" style="--c:#acdcdf"><img src="./assets/img/stellans/ren/avatar.webp" width="96" height="96" alt="" loading="lazy"><span class="roster-text"><span class="roster-name">Ren</span><span class="roster-role">Wardkeeper</span></span></button>
+            <button class="roster-tab" type="button" role="tab" id="tab-chika" aria-controls="stellan-chika" aria-selected="false" tabindex="-1" style="--c:#c6adf0"><img src="./assets/img/stellans/chika/avatar.webp" width="96" height="96" alt="" loading="lazy"><span class="roster-text"><span class="roster-name">Chika</span><span class="roster-role">Threadkeeper</span></span></button>
+            <button class="roster-tab" type="button" role="tab" id="tab-lily" aria-controls="stellan-lily" aria-selected="false" tabindex="-1" style="--c:#a9d9b5"><img src="./assets/img/stellans/lily/avatar.webp" width="96" height="96" alt="" loading="lazy"><span class="roster-text"><span class="roster-name">Lily</span><span class="roster-role">Glyphcaster</span></span></button>
           </div>
-          <p class="download-footnote">Free to play. No release date announced yet.</p>
+          <a class="roster-more" href="#stellans-more"><span class="roster-more-icon" aria-hidden="true"><svg><use href="#i-spark"/></svg></span>And many more</a>
+        </div>
+        <div class="spotlight" style="--c:#f6b6d2">
+          <div class="spotlight-backdrop" aria-hidden="true"><img src="./assets/img/stellans/miko/backdrop.webp" width="480" height="270" alt="" loading="lazy" data-backdrop></div>
+          <div class="spotlight-panels">
+            <article class="stellan is-active" id="stellan-miko" data-stellan="miko" style="--c:#f6b6d2" aria-labelledby="stellan-miko-name">
+              <span class="stellan-no" aria-hidden="true">01</span>
+              <div class="stellan-figure">
+                <div class="stellan-poses">
+                  <img class="stellan-pose" src="./assets/img/stellans/miko/neutral.webp" width="640" height="960" alt="Miko, full-length portrait" loading="lazy" decoding="async" data-pose-img>
+                </div>
+                <div class="pose-switch" role="group" aria-label="Miko’s expressions">
+                  <span class="pose-label" aria-hidden="true">Expression</span>
+                  <button type="button" data-pose="neutral" aria-pressed="true">Neutral</button>
+                  <button type="button" data-pose="joy" aria-pressed="false">Joy</button>
+                  <button type="button" data-pose="concern" aria-pressed="false">Concern</button>
+                  <button type="button" data-pose="resolve" aria-pressed="false">Resolve</button>
+                  <button type="button" data-pose="surprise" aria-pressed="false">Surprise</button>
+                </div>
+              </div>
+              <div class="stellan-info">
+                <p class="stellan-kicker"><span class="class-badge"><svg aria-hidden="true"><use href="#i-dealer"/></svg>Dealer</span><span class="stellan-role">Starcaster</span></p>
+                <h3 class="stellan-name" id="stellan-miko-name">Miko</h3>
+                <p class="stellan-epithet">The morning star</p>
+                <blockquote class="stellan-quote"><p>“I don’t know yet. But we can find out.”</p></blockquote>
+                <p class="stellan-bio">Your first Stellan deputy at Lyth. Warm and direct, Miko turns decisions into workable plans—and says so when an order needs rethinking. Between missions, she’s finding the small places and everyday pleasures that make Lyth feel like home.</p>
+                <dl class="stellan-facts">
+                  <div><dt>Signature skill</dt><dd><strong>Starlight bloom</strong>A burst of starlight strikes every enemy, with a chance to stun each survivor.</dd></div>
+                  <div><dt>Joins your team</dt><dd>Starting companion</dd></div>
+                </dl>
+                <div class="stellan-foot">
+                  <ul class="traits" aria-label="Traits"><li>Warm</li><li>Observant</li><li>Curious</li></ul>
+                  <a class="link-btn" href="./assets/img/stellans/miko/illustration.webp" data-lightbox-src="./assets/img/stellans/miko/illustration.webp" data-lightbox-caption="Miko · Starcaster"><svg aria-hidden="true"><use href="#i-expand"/></svg>View illustration</a>
+                </div>
+              </div>
+            </article>
+            <article class="stellan" id="stellan-nana" data-stellan="nana" style="--c:#91d5c9" aria-labelledby="stellan-nana-name">
+              <span class="stellan-no" aria-hidden="true">02</span>
+              <div class="stellan-figure">
+                <div class="stellan-poses">
+                  <img class="stellan-pose" src="./assets/img/stellans/nana/neutral.webp" width="640" height="960" alt="Nana, full-length portrait" loading="lazy" decoding="async" data-pose-img>
+                </div>
+                <div class="pose-switch" role="group" aria-label="Nana’s expressions">
+                  <span class="pose-label" aria-hidden="true">Expression</span>
+                  <button type="button" data-pose="neutral" aria-pressed="true">Neutral</button>
+                  <button type="button" data-pose="delighted" aria-pressed="false">Delighted</button>
+                  <button type="button" data-pose="sheepish" aria-pressed="false">Sheepish</button>
+                  <button type="button" data-pose="focused" aria-pressed="false">Focused</button>
+                  <button type="button" data-pose="surprised" aria-pressed="false">Surprised</button>
+                </div>
+              </div>
+              <div class="stellan-info">
+                <p class="stellan-kicker"><span class="class-badge"><svg aria-hidden="true"><use href="#i-dealer"/></svg>Dealer</span><span class="stellan-role">Hammerstriker</span></p>
+                <h3 class="stellan-name" id="stellan-nana-name">Nana</h3>
+                <p class="stellan-epithet">A little momentum</p>
+                <blockquote class="stellan-quote"><p>“This is the part people usually remember.”</p></blockquote>
+                <p class="stellan-bio">A cheerful field Stellan with a knack for uncertain first impressions. She might misplace a fastening clip, but put a hammer in her hands and her timing is precise—it grows and shrinks as she works, turning extra Core Energy into one carefully placed blow.</p>
+                <dl class="stellan-facts">
+                  <div><dt>Signature skill</dt><dd><strong>Grand slam</strong>Her hammer swells for one enormous blow against the frontmost enemy.</dd></div>
+                  <div><dt>Joins your team</dt><dd>Starting companion</dd></div>
+                </dl>
+                <div class="stellan-foot">
+                  <ul class="traits" aria-label="Traits"><li>Cheerful</li><li>Skilled</li><li>Spontaneous</li></ul>
+                  <a class="link-btn" href="./assets/img/stellans/nana/illustration.webp" data-lightbox-src="./assets/img/stellans/nana/illustration.webp" data-lightbox-caption="Nana · Hammerstriker"><svg aria-hidden="true"><use href="#i-expand"/></svg>View illustration</a>
+                </div>
+              </div>
+            </article>
+            <article class="stellan" id="stellan-ren" data-stellan="ren" style="--c:#acdcdf" aria-labelledby="stellan-ren-name">
+              <span class="stellan-no" aria-hidden="true">03</span>
+              <div class="stellan-figure">
+                <div class="stellan-poses">
+                  <img class="stellan-pose" src="./assets/img/stellans/ren/neutral.webp" width="640" height="960" alt="Ren, full-length portrait" loading="lazy" decoding="async" data-pose-img>
+                </div>
+                <div class="pose-switch" role="group" aria-label="Ren’s expressions">
+                  <span class="pose-label" aria-hidden="true">Expression</span>
+                  <button type="button" data-pose="neutral" aria-pressed="true">Neutral</button>
+                  <button type="button" data-pose="joy" aria-pressed="false">Joy</button>
+                  <button type="button" data-pose="concern" aria-pressed="false">Concern</button>
+                  <button type="button" data-pose="resolve" aria-pressed="false">Resolve</button>
+                  <button type="button" data-pose="surprise" aria-pressed="false">Surprise</button>
+                </div>
+              </div>
+              <div class="stellan-info">
+                <p class="stellan-kicker"><span class="class-badge"><svg aria-hidden="true"><use href="#i-tanker"/></svg>Tanker</span><span class="stellan-role">Wardkeeper</span></p>
+                <h3 class="stellan-name" id="stellan-ren-name">Ren</h3>
+                <p class="stellan-epithet">Moonlit sentinel</p>
+                <blockquote class="stellan-quote"><p>“Take your time. I’ll keep watch.”</p></blockquote>
+                <p class="stellan-bio">Ren keeps the night watch in a settlement she knows through its people as much as its streets. Her reassurance comes in practical details and promises she can keep, with dry humor delivered so evenly it takes a moment to land.</p>
+                <dl class="stellan-facts">
+                  <div><dt>Signature skill</dt><dd><strong>Moonlit aegis</strong>Shields every ally, and hardens Ren’s own defense while her barrier holds.</dd></div>
+                  <div><dt>Joins your team</dt><dd>Earned on expedition</dd></div>
+                </dl>
+                <div class="stellan-foot">
+                  <ul class="traits" aria-label="Traits"><li>Patient</li><li>Attentive</li><li>Protective</li></ul>
+                  <a class="link-btn" href="./assets/img/stellans/ren/illustration.webp" data-lightbox-src="./assets/img/stellans/ren/illustration.webp" data-lightbox-caption="Ren · Wardkeeper"><svg aria-hidden="true"><use href="#i-expand"/></svg>View illustration</a>
+                </div>
+              </div>
+            </article>
+            <article class="stellan" id="stellan-chika" data-stellan="chika" style="--c:#c6adf0" aria-labelledby="stellan-chika-name">
+              <span class="stellan-no" aria-hidden="true">04</span>
+              <div class="stellan-figure">
+                <div class="stellan-poses">
+                  <img class="stellan-pose" src="./assets/img/stellans/chika/neutral.webp" width="640" height="960" alt="Chika, full-length portrait" loading="lazy" decoding="async" data-pose-img>
+                </div>
+                <div class="pose-switch" role="group" aria-label="Chika’s expressions">
+                  <span class="pose-label" aria-hidden="true">Expression</span>
+                  <button type="button" data-pose="neutral" aria-pressed="true">Neutral</button>
+                  <button type="button" data-pose="joy" aria-pressed="false">Joy</button>
+                  <button type="button" data-pose="concern" aria-pressed="false">Concern</button>
+                  <button type="button" data-pose="resolve" aria-pressed="false">Resolve</button>
+                  <button type="button" data-pose="surprise" aria-pressed="false">Surprise</button>
+                </div>
+              </div>
+              <div class="stellan-info">
+                <p class="stellan-kicker"><span class="class-badge"><svg aria-hidden="true"><use href="#i-supporter"/></svg>Supporter</span><span class="stellan-role">Threadkeeper</span></p>
+                <h3 class="stellan-name" id="stellan-chika-name">Chika</h3>
+                <p class="stellan-epithet">The light left on</p>
+                <blockquote class="stellan-quote"><p>“You don’t have to tell me everything to stay for tea.”</p></blockquote>
+                <p class="stellan-bio">A craftswoman who asks what a thing means to its owner before she picks up her needle. Her worktable has room for conversation, comfortable silence and tea—though careless workmanship earns a surprisingly firm opinion.</p>
+                <dl class="stellan-facts">
+                  <div><dt>Signature skill</dt><dd><strong>Threads of solace</strong>Mends the whole team’s wounds and reinforces their defense.</dd></div>
+                  <div><dt>Joins your team</dt><dd>Star Core laboratory</dd></div>
+                </dl>
+                <div class="stellan-foot">
+                  <ul class="traits" aria-label="Traits"><li>Patient</li><li>Meticulous</li><li>Quietly courageous</li></ul>
+                  <a class="link-btn" href="./assets/img/stellans/chika/illustration.webp" data-lightbox-src="./assets/img/stellans/chika/illustration.webp" data-lightbox-caption="Chika · Threadkeeper"><svg aria-hidden="true"><use href="#i-expand"/></svg>View illustration</a>
+                </div>
+              </div>
+            </article>
+            <article class="stellan" id="stellan-lily" data-stellan="lily" style="--c:#a9d9b5" aria-labelledby="stellan-lily-name">
+              <span class="stellan-no" aria-hidden="true">05</span>
+              <div class="stellan-figure">
+                <div class="stellan-poses">
+                  <img class="stellan-pose" src="./assets/img/stellans/lily/neutral.webp" width="640" height="960" alt="Lily, full-length portrait" loading="lazy" decoding="async" data-pose-img>
+                </div>
+                <div class="pose-switch" role="group" aria-label="Lily’s expressions">
+                  <span class="pose-label" aria-hidden="true">Expression</span>
+                  <button type="button" data-pose="neutral" aria-pressed="true">Neutral</button>
+                  <button type="button" data-pose="joy" aria-pressed="false">Joy</button>
+                  <button type="button" data-pose="concern" aria-pressed="false">Concern</button>
+                  <button type="button" data-pose="resolve" aria-pressed="false">Resolve</button>
+                  <button type="button" data-pose="surprise" aria-pressed="false">Surprise</button>
+                </div>
+              </div>
+              <div class="stellan-info">
+                <p class="stellan-kicker"><span class="class-badge"><svg aria-hidden="true"><use href="#i-supporter"/></svg>Supporter</span><span class="stellan-role">Glyphcaster</span></p>
+                <h3 class="stellan-name" id="stellan-lily-name">Lily</h3>
+                <p class="stellan-epithet">A story yet to be written</p>
+                <blockquote class="stellan-quote"><p>“You don’t have to finish tonight. A good bookmark is a small kindness to your future self.”</p></blockquote>
+                <p class="stellan-bio">The Stellan who helps run the library at the Lyth command site, with round glasses and a thick grimoire always close at hand. She’ll happily find you an ambitious reading stack—and a comfortable chair to go with it.</p>
+                <dl class="stellan-facts">
+                  <div><dt>Signature skill</dt><dd><strong>Open secret</strong>Strikes every enemy, bookmarks each one for bonus damage, and lowers their defense.</dd></div>
+                  <div><dt>Joins your team</dt><dd>Story reward</dd></div>
+                </dl>
+                <div class="stellan-foot">
+                  <ul class="traits" aria-label="Traits"><li>Attentive</li><li>Enthusiastic</li><li>Careful</li></ul>
+                  <a class="link-btn" href="./assets/img/stellans/lily/illustration.webp" data-lightbox-src="./assets/img/stellans/lily/illustration.webp" data-lightbox-caption="Lily · Glyphcaster"><svg aria-hidden="true"><use href="#i-expand"/></svg>View illustration</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="spotlight-arrows">
+            <button class="arrow-btn arrow-prev" type="button" data-step="-1"><svg aria-hidden="true"><use href="#i-chevron"/></svg><span class="visually-hidden">Previous Stellan</span></button>
+            <span class="spotlight-count" aria-hidden="true"><b data-spot-count>01</b> / 05</span>
+            <button class="arrow-btn" type="button" data-step="1"><svg aria-hidden="true"><use href="#i-chevron"/></svg><span class="visually-hidden">Next Stellan</span></button>
+          </div>
+        </div>
+
+        <section class="more-stellans" id="stellans-more" aria-labelledby="more-title" data-reveal>
+          <div class="more-art" aria-hidden="true">
+            <img src="./assets/img/stellans/more-silhouettes.webp" width="1547" height="660" alt="" loading="lazy">
+          </div>
+          <div class="more-copy">
+            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>And many more</p>
+            <h3 class="display-sm" id="more-title">More stars are waiting to be found.</h3>
+            <p>Swordswomen and surveyors, medics and illusionists—many more Stellans join your constellation through the story, on expedition, and at the Star Core laboratory. Each one has a story of their own.</p>
+            <a class="link-btn" href="#free">How new companions join <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </section>
         </div>
       </section>
 
-      <section id="faq" class="section faq-section container" aria-labelledby="faq-title"><div><p class="eyebrow">BEFORE YOU SET OFF</p><h2 id="faq-title">A few things<br>you might wonder.</h2></div><div class="faq-list">
-        <details><summary>What kind of game is Stellar Refrain?<span aria-hidden="true">+</span></summary><p>It's a character-focused RPG that brings together team building, automatic card battles, and illustrated stories. You play a new Astral Concord commander, working alongside Stellan companions to protect people across connected worlds.</p></details>
-        <details><summary>Will the game be free?<span aria-hidden="true">+</span></summary><p>Yes. Stellar Refrain is being developed as a free game, with all gameplay content obtainable through play and no microtransactions. Optional support, if introduced, will grant no gameplay benefits.</p></details>
-        <details><summary>Which platforms will be supported first?<span aria-hidden="true">+</span></summary><p>The initial desktop releases are planned for Macs with Apple Silicon and Windows PCs with x64 processors. Minimum operating system versions and other system requirements will be confirmed with the downloads.</p></details>
-        <details><summary>Can I download it now?<span aria-hidden="true">+</span></summary><p>Not yet. The game is still in development, and public downloads aren't available. The Mac and Windows download buttons will become available here when the binaries are ready. A public release date hasn't been announced.</p></details>
-      </div></section>
+      <!-- Worlds -->
+      <section class="section worlds" id="worlds" aria-labelledby="worlds-title">
+        <div class="container">
+          <header class="section-head split" data-reveal>
+            <div>
+              <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Worlds</p>
+              <h2 class="display" id="worlds-title">Faraway worlds.<br class="br-wide"> Close-to-home stories.</h2>
+            </div>
+            <p class="lede">Cosmic energy links distant planets. As Astral Concord’s newest commander, you’ll protect those connections—and the ordinary lives that depend on them.</p>
+          </header>
+
+          <article class="world" aria-labelledby="world-lyth">
+            <div class="world-hero" data-reveal>
+              <div class="world-media" data-parallax><img src="./assets/img/worlds/lyth-waterfront-1600.webp" srcset="./assets/img/worlds/lyth-waterfront-720.webp 720w, ./assets/img/worlds/lyth-waterfront-1600.webp 1600w" sizes="(min-width: 1360px) 1320px, 100vw" width="1600" height="900" alt="Lanterns and moonlight reflected along Lyth’s waterfront promenade, with a cruise boat at the pier." loading="lazy"></div>
+              <div class="world-copy">
+                <p class="eyebrow">Merra · Your new home</p>
+                <h3 class="display-md" id="world-lyth">Lyth</h3>
+                <p>A lakeside city of lantern-lit promenades, piers and winter cruises. Your command site sits on a rise above the water, and life carries on between the missions.</p>
+                <ul class="world-facts">
+                  <li>One of the first terraformed worlds</li>
+                  <li>Long winter nights, spring-warm streets</li>
+                  <li>Home to just under 200,000 people</li>
+                </ul>
+              </div>
+            </div>
+            <ul class="postcards" aria-label="Places in Lyth">
+              <li><a class="postcard" href="./assets/img/worlds/lyth-inlet-1600.webp" data-lightbox-src="./assets/img/worlds/lyth-inlet-1600.webp" data-lightbox-caption="The quiet inlet · Lyth"><img src="./assets/img/worlds/lyth-inlet-720.webp" width="720" height="405" alt="" loading="lazy"><span>The quiet inlet</span><svg aria-hidden="true"><use href="#i-expand"/></svg></a></li>
+              <li><a class="postcard" href="./assets/img/worlds/lyth-library-1600.webp" data-lightbox-src="./assets/img/worlds/lyth-library-1600.webp" data-lightbox-caption="The library · Lyth command site"><img src="./assets/img/worlds/lyth-library-720.webp" width="720" height="405" alt="" loading="lazy"><span>The library</span><svg aria-hidden="true"><use href="#i-expand"/></svg></a></li>
+              <li><a class="postcard" href="./assets/img/worlds/lyth-laboratory-1600.webp" data-lightbox-src="./assets/img/worlds/lyth-laboratory-1600.webp" data-lightbox-caption="The Star Core laboratory · Lyth command site"><img src="./assets/img/worlds/lyth-laboratory-720.webp" width="720" height="405" alt="" loading="lazy"><span>Star Core laboratory</span><svg aria-hidden="true"><use href="#i-expand"/></svg></a></li>
+              <li><a class="postcard" href="./assets/img/worlds/lyth-court-1600.webp" data-lightbox-src="./assets/img/worlds/lyth-court-1600.webp" data-lightbox-caption="The exercise court · Lyth command site"><img src="./assets/img/worlds/lyth-court-720.webp" width="720" height="405" alt="" loading="lazy"><span>The exercise court</span><svg aria-hidden="true"><use href="#i-expand"/></svg></a></li>
+              <li><a class="postcard" href="./assets/img/worlds/lyth-office-1600.webp" data-lightbox-src="./assets/img/worlds/lyth-office-1600.webp" data-lightbox-caption="The command office · Lyth command site"><img src="./assets/img/worlds/lyth-office-720.webp" width="720" height="405" alt="" loading="lazy"><span>The command office</span><svg aria-hidden="true"><use href="#i-expand"/></svg></a></li>
+            </ul>
+          </article>
+
+          <article class="world world-alt" aria-labelledby="world-khalion">
+            <div class="world-hero" data-reveal>
+              <div class="world-media" data-parallax><img src="./assets/img/worlds/khalion-terrace-1600.webp" srcset="./assets/img/worlds/khalion-terrace-720.webp 720w, ./assets/img/worlds/khalion-terrace-1600.webp 1600w" sizes="(min-width: 1360px) 1320px, 100vw" width="1600" height="900" alt="Sunlit sky terraces and soaring towers above Khalion’s coast." loading="lazy"></div>
+              <div class="world-copy">
+                <p class="eyebrow">Khalion · Beyond the familiar</p>
+                <h3 class="display-md" id="world-khalion">Khalion</h3>
+                <p>Immense pale towers, elevated walkways and sky terraces above the sea. When warning signs rise here, your team volunteers to help—one consequential mission at a time.</p>
+                <ul class="world-facts">
+                  <li>A coastal city of towers</li>
+                  <li>Linked by transit and sky bridges</li>
+                  <li>Your first major mission world</li>
+                </ul>
+              </div>
+            </div>
+            <ul class="postcards" aria-label="Places in Khalion">
+              <li><a class="postcard" href="./assets/img/worlds/khalion-interchange-1600.webp" data-lightbox-src="./assets/img/worlds/khalion-interchange-1600.webp" data-lightbox-caption="Transit interchange · Khalion"><img src="./assets/img/worlds/khalion-interchange-720.webp" width="720" height="405" alt="" loading="lazy"><span>Transit interchange</span><svg aria-hidden="true"><use href="#i-expand"/></svg></a></li>
+              <li><a class="postcard" href="./assets/img/worlds/khalion-gallery-1600.webp" data-lightbox-src="./assets/img/worlds/khalion-gallery-1600.webp" data-lightbox-caption="Recovery gallery · Khalion"><img src="./assets/img/worlds/khalion-gallery-720.webp" width="720" height="405" alt="" loading="lazy"><span>Recovery gallery</span><svg aria-hidden="true"><use href="#i-expand"/></svg></a></li>
+              <li><a class="postcard" href="./assets/img/worlds/khalion-suite-1600.webp" data-lightbox-src="./assets/img/worlds/khalion-suite-1600.webp" data-lightbox-caption="An evening suite · Khalion"><img src="./assets/img/worlds/khalion-suite-720.webp" width="720" height="405" alt="" loading="lazy"><span>An evening suite</span><svg aria-hidden="true"><use href="#i-expand"/></svg></a></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Gameplay -->
+      <section class="section gameplay" id="gameplay" aria-labelledby="gameplay-title">
+        <div class="container">
+          <header class="section-head center" data-reveal>
+            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Gameplay</p>
+            <h2 class="display" id="gameplay-title">A little strategy.<br class="br-wide"> A lot of heart.</h2>
+            <p class="lede">Prepare well, then let your team shine. Every system is built around the people in your party.</p>
+          </header>
+
+          <div class="features" data-features>
+            <div class="feature-tabs" role="tablist" aria-label="Game features" aria-orientation="vertical">
+              <button class="feature-tab" id="ft-battle" type="button" role="tab" aria-selected="true" aria-controls="fp-battle">
+                <span class="feature-no">01</span>
+                <span class="feature-text"><strong>Lead the expedition</strong><span>Battles play out automatically, paced by each Stellan’s attack speed. You make the calls that matter: who stands in front, when to cast, and whether the squad pushes with Overdrive or holds with Endure.</span></span>
+                <span class="feature-progress" aria-hidden="true"><i></i></span>
+              </button>
+              <button class="feature-tab" id="ft-teams" type="button" role="tab" aria-selected="false" aria-controls="fp-teams" tabindex="-1">
+                <span class="feature-no">02</span>
+                <span class="feature-text"><strong>Build your constellation</strong><span>Form teams of up to four, bring two into a stage, and switch between waves. Drag cards to reorder, save favorite formations, and watch team bonuses add up.</span></span>
+                <span class="feature-progress" aria-hidden="true"><i></i></span>
+              </button>
+              <button class="feature-tab" id="ft-story" type="button" role="tab" aria-selected="false" aria-controls="fp-story" tabindex="-1">
+                <span class="feature-no">03</span>
+                <span class="feature-text"><strong>Live the story</strong><span>Voiced, illustrated episodes with companions who react in the moment—and a story library to revisit the chapters you’ve unlocked.</span></span>
+                <span class="feature-progress" aria-hidden="true"><i></i></span>
+              </button>
+              <button class="feature-tab" id="ft-home" type="button" role="tab" aria-selected="false" aria-controls="fp-home" tabindex="-1">
+                <span class="feature-no">04</span>
+                <span class="feature-text"><strong>Come home to them</strong><span>Your terrace above Lyth, where companions greet you, chat between missions, and remember the little things. Choose who’s waiting and change the scenery.</span></span>
+                <span class="feature-progress" aria-hidden="true"><i></i></span>
+              </button>
+              <button class="feature-tab" id="ft-grow" type="button" role="tab" aria-selected="false" aria-controls="fp-grow" tabindex="-1">
+                <span class="feature-no">05</span>
+                <span class="feature-text"><strong>Grow together</strong><span>Earn Stardust, Star Fragments and Star Cores on expeditions. Level up, raise Potential, upgrade equipment, and welcome new Stellans at the Star Core laboratory.</span></span>
+                <span class="feature-progress" aria-hidden="true"><i></i></span>
+              </button>
+            </div>
+
+            <div class="feature-panels">
+              <figure class="screen" id="fp-battle" role="tabpanel" aria-labelledby="ft-battle">
+                <div class="screen-bar" aria-hidden="true"><i></i><i></i><i></i><span>Expedition · The crossing holds</span></div>
+                <img src="./assets/img/shots/battle-1600.webp" srcset="./assets/img/shots/battle-960.webp 960w, ./assets/img/shots/battle-1600.webp 1600w" sizes="(min-width: 1100px) 760px, 100vw" width="1600" height="900" alt="In-game battle: Miko, Chika, Ren and a fourth Stellan face the Crossing Colossus and its Wards on a Khalion walkway." loading="lazy">
+              </figure>
+              <figure class="screen" id="fp-teams" role="tabpanel" aria-labelledby="ft-teams" hidden>
+                <div class="screen-bar" aria-hidden="true"><i></i><i></i><i></i><span>Teams · Moonwatch</span></div>
+                <img src="./assets/img/shots/teams-1600.webp" srcset="./assets/img/shots/teams-960.webp 960w, ./assets/img/shots/teams-1600.webp 1600w" sizes="(min-width: 1100px) 760px, 100vw" width="1600" height="900" alt="The Teams screen: a four-member formation of Ren, Nana, Chika and Miko with team power and bonuses." loading="lazy">
+              </figure>
+              <figure class="screen" id="fp-story" role="tabpanel" aria-labelledby="ft-story" hidden>
+                <div class="screen-bar" aria-hidden="true"><i></i><i></i><i></i><span>Story · 01 Welcome to Lyth</span></div>
+                <img src="./assets/img/shots/story-1600.webp" srcset="./assets/img/shots/story-960.webp 960w, ./assets/img/shots/story-1600.webp 1600w" sizes="(min-width: 1100px) 760px, 100vw" width="1600" height="900" alt="A story scene: Miko greets the new commander on a blossom-lined terrace at night." loading="lazy">
+              </figure>
+              <figure class="screen" id="fp-home" role="tabpanel" aria-labelledby="ft-home" hidden>
+                <div class="screen-bar" aria-hidden="true"><i></i><i></i><i></i><span>Home · Moonlit terrace</span></div>
+                <img src="./assets/img/shots/home-1600.webp" srcset="./assets/img/shots/home-960.webp 960w, ./assets/img/shots/home-1600.webp 1600w" sizes="(min-width: 1100px) 760px, 100vw" width="1600" height="900" alt="The Home screen: Miko welcomes you back on the moonlit terrace beside the main menu." loading="lazy">
+              </figure>
+              <figure class="screen" id="fp-grow" role="tabpanel" aria-labelledby="ft-grow" hidden>
+                <div class="screen-bar" aria-hidden="true"><i></i><i></i><i></i><span>Shop · The Star Core laboratory</span></div>
+                <img src="./assets/img/shots/lab-1600.webp" srcset="./assets/img/shots/lab-960.webp 960w, ./assets/img/shots/lab-1600.webp 1600w" sizes="(min-width: 1100px) 760px, 100vw" width="1600" height="900" alt="The Star Core laboratory, where Umi helps you recruit a new Stellan with Star Cores earned in play." loading="lazy">
+              </figure>
+            </div>
+          </div>
+
+          <ul class="stats" data-reveal>
+            <li><strong data-count="18">18</strong><span>Stellans to meet</span></li>
+            <li><strong data-count="3">3</strong><span>zones to explore, with EX challenges</span></li>
+            <li><strong data-count="4">4</strong><span>companions per team, two teams per stage</span></li>
+            <li><strong data-count="0">0</strong><span>microtransactions</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Promise -->
+      <section class="section promise" id="free" aria-labelledby="free-title">
+        <div class="container">
+          <header class="section-head center" data-reveal>
+            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Our promise</p>
+            <h2 class="display" id="free-title">Free to play.<br> Yours to earn.</h2>
+            <p class="lede">Stellar Refrain is free to download and play, and everything in it is earned by playing.</p>
+          </header>
+          <ul class="pledges">
+            <li class="pledge" data-reveal>
+              <img src="./assets/img/icons/star-core.webp" width="120" height="120" alt="" loading="lazy">
+              <h3>Every companion, earned</h3>
+              <p>Recruit Stellans at the Star Core laboratory with Star Cores found through play. Each recruitment welcomes someone you haven’t met yet—never a duplicate.</p>
+            </li>
+            <li class="pledge" data-reveal style="--d:1">
+              <img src="./assets/img/icons/stardust.webp" width="120" height="120" alt="" loading="lazy">
+              <h3>Progress through play</h3>
+              <p>Stardust, Star Fragments and equipment materials come from expeditions, missions and story—not a storefront.</p>
+            </li>
+            <li class="pledge" data-reveal style="--d:2">
+              <img src="./assets/img/icons/star-fragment.webp" width="120" height="120" alt="" loading="lazy">
+              <h3>No microtransactions</h3>
+              <p>No paid currency, subscriptions or paid recruitment. If optional support is ever offered, it will never affect gameplay.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Download -->
+      <section class="download" id="download" aria-labelledby="download-title">
+        <div class="download-media" aria-hidden="true">
+          <img src="./assets/img/key/worlds-1672.webp" srcset="./assets/img/key/worlds-900.webp 900w, ./assets/img/key/worlds-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="" loading="lazy">
+        </div>
+        <canvas class="starfield" data-starfield aria-hidden="true"></canvas>
+        <div class="container download-inner">
+          <header class="section-head center" data-reveal>
+            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Your next chapter</p>
+            <h2 class="display" id="download-title">There’s a place for you<br class="br-wide"> among the stars.</h2>
+            <p class="lede" data-download-intro>Stellar Refrain is in private preview. Public downloads will appear here as soon as they’re ready.</p>
+          </header>
+
+          <div class="platform-grid">
+            <article class="platform" data-platform="mac" data-reveal>
+              <div class="platform-head">
+                <span class="platform-icon"><svg aria-hidden="true"><use href="#i-apple"/></svg></span>
+                <div>
+                  <h3>macOS</h3>
+                  <p>Apple Silicon (M-series)</p>
+                </div>
+                <span class="release-state" data-release-state>In development</span>
+              </div>
+              <ul class="platform-reqs">
+                <li>macOS 13 Ventura or later</li>
+                <li>Apple Silicon Macs only</li>
+              </ul>
+              <button class="btn btn-block btn-disabled" type="button" disabled data-download-placeholder>Coming soon</button>
+              <a class="btn btn-gold btn-block" data-download-link hidden><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>Download for Mac</span></a>
+            </article>
+            <article class="platform" data-platform="windows" data-reveal style="--d:1">
+              <div class="platform-head">
+                <span class="platform-icon"><svg aria-hidden="true"><use href="#i-windows"/></svg></span>
+                <div>
+                  <h3>Windows</h3>
+                  <p>Intel &amp; AMD (x64)</p>
+                </div>
+                <span class="release-state" data-release-state>In development</span>
+              </div>
+              <ul class="platform-reqs">
+                <li>Windows 10 or 11, 64-bit</li>
+                <li>Intel or AMD processor</li>
+              </ul>
+              <button class="btn btn-block btn-disabled" type="button" disabled data-download-placeholder>Coming soon</button>
+              <a class="btn btn-gold btn-block" data-download-link hidden><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>Download for Windows</span></a>
+            </article>
+          </div>
+          <p class="download-note">Free to play <span aria-hidden="true">·</span> No release date announced yet</p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>FAQ</p>
+            <h2 class="display" id="faq-title">Before you<br> set off.</h2>
+            <p class="lede">A few things you might be wondering about.</p>
+          </header>
+          <div class="faq-list" data-reveal>
+            <details>
+              <summary>What kind of game is Stellar Refrain?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>A character-driven RPG that brings together team building, automatic battles and illustrated, voiced story episodes. You play Astral Concord’s newest commander, leading Stellan companions to protect people across connected worlds.</p></div>
+            </details>
+            <details>
+              <summary>Is it really free?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Yes. Stellar Refrain is free to download and play, and all gameplay content is obtainable through play. There is no paid currency, no subscription and no paid recruitment. If optional support is ever introduced, it won’t grant gameplay benefits.</p></div>
+            </details>
+            <details>
+              <summary>How do new companions join my team?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Some join through the story or by clearing stages. Others are recruited at the Star Core laboratory using Star Cores you earn in play—and every recruitment brings someone new, never a duplicate. A few Stellans will arrive in future stories.</p></div>
+            </details>
+            <details>
+              <summary>Do battles need fast reflexes?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>No. Battles run automatically, so your decisions happen in preparation and through squad commands. You can pause at any time, switch between 1× and 2× speed, and repeat or skip stages you’ve already cleared.</p></div>
+            </details>
+            <details>
+              <summary>Which platforms are supported?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>The first releases are planned for Macs with Apple Silicon running macOS 13 or later, and for 64-bit Windows 10 and 11 PCs. Other platforms aren’t planned for the first release.</p></div>
+            </details>
+            <details>
+              <summary>Can I play it now?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Not yet. Stellar Refrain is in a private preview while development continues, and a public release date hasn’t been announced. The Mac and Windows downloads will appear on this page when they’re ready.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="site-footer container"><div><a class="brand" href="#" aria-label="Stellar Refrain home"><svg aria-hidden="true"><use href="#star"/></svg><span>Stellar Refrain<span class="brand-dot">.</span></span></a><p>Every star has a story.</p></div><div class="footer-links"><a href="#experience">The game</a><a href="#companions">Companions</a><a href="#download">Downloads</a></div><div class="footer-bottom"><span>© <span id="year">2026</span> Stellar Refrain</span><span>In development. Artwork and gameplay may evolve.</span><a href="#">Back to the stars ↑</a></div></footer>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="brand brand-lg" href="#top" aria-label="Stellar Refrain — back to top">
+              <svg class="brand-crest" aria-hidden="true"><use href="#i-crest"/></svg>
+              <span class="brand-word" aria-hidden="true"><span>Stellar</span><span>Refrain</span></span>
+            </a>
+            <p>Our little constellation.</p>
+          </div>
+          <nav class="footer-nav" aria-label="Footer">
+            <div>
+              <p>Explore</p>
+              <a href="#story">Story</a>
+              <a href="#stellans">Stellans</a>
+              <a href="#worlds">Worlds</a>
+              <a href="#gameplay">Gameplay</a>
+            </div>
+            <div>
+              <p>Play</p>
+              <a href="#download">Download</a>
+              <a href="#free">Free to play</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <div>
+              <p>About</p>
+              <a href="./assets/licenses/DM-Sans-OFL.txt">DM Sans license</a>
+              <a href="./assets/licenses/Libre-Caslon-Display-OFL.txt">Libre Caslon license</a>
+            </div>
+          </nav>
+        </div>
+        <p class="footer-mark" aria-hidden="true">Stellar Refrain</p>
+        <div class="footer-bottom">
+          <span>© <span data-year>2026</span> Stellar Refrain</span>
+          <span>In development. Artwork, story and features may change.</span>
+          <a href="#top">Back to the stars <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="lightbox" data-lightbox aria-label="Artwork viewer">
+      <figure>
+        <img alt="" data-lightbox-img>
+        <figcaption data-lightbox-caption></figcaption>
+      </figure>
+      <button class="lightbox-close" type="button" data-lightbox-close><svg aria-hidden="true"><use href="#i-close"/></svg><span class="visually-hidden">Close</span></button>
+    </dialog>
   </body>
 </html>
