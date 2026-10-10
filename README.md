@@ -1,6 +1,6 @@
 # Stellar Refrain homepage
 
-The marketing site for Stellar Refrain is a single static page. It has no package installation, build step, backend, analytics, cookies or third-party requests. Fonts and artwork are bundled locally.
+The marketing site for Stellar Refrain is a single static page. It has no package installation, build step, backend, analytics or cookies. Fonts and artwork are bundled locally. The download section makes one anonymous request to GitHub's public API to find the latest release.
 
 ## Preview
 
@@ -34,27 +34,25 @@ Paths in `index.html` are relative, so the page also works from a project subpat
 
 If you set up a custom domain, update all of these.
 
-## Add binary downloads
+## Release downloads
 
-The download buttons are stubs for now. Edit `assets/js/downloads.js` to enable one. Each platform has three fields:
+`assets/js/downloads.js` requests the [latest published release](https://docs.github.com/en/rest/releases/releases#get-the-latest-release) from `Stellar-Refrain/downloads` on each page load. It uses that release's asset URLs for the platform buttons, shows its version in each badge, and links the release-notes button to the same release's GitHub page. Drafts and prereleases are excluded.
 
-- `url`: the release URL.
-- `label`: the button text.
-- `version`: optional. If set, it replaces the **In development** badge, for example `"v0.3.0 · 182 MB"`.
+Publish a new release in the `downloads` repository with the existing installer naming convention:
 
-A non-empty HTTP(S) URL or site-relative path replaces that platform's disabled **Coming soon** button with a real download link. An empty or invalid URL keeps the placeholder. The site never guesses a release URL and never starts a download automatically.
+- Mac: `Stellar-Refrain_<version>_aarch64.dmg` (`arm64` is also accepted).
+- Windows: `Stellar-Refrain_<version>_x64-setup.exe`.
+
+No website edit is needed for a new version. Update the asset patterns in `downloads.js` if installer naming changes. Only uploaded, nonempty installer assets hosted in this repository and matching the selected release tag are used; signatures and other architectures are ignored. Downloads start only when a visitor clicks a button.
+
+The HTML provides working links to GitHub's latest release when JavaScript is disabled or the API fails, is rate limited, or takes longer than eight seconds. If the latest release lacks a platform installer, that card shows **Not available** and links to that release page. The site does not mix installers from different releases.
 
 The two targets match the game's desktop builds (Tauri `minimumSystemVersion` and the CI targets):
 
 - `mac`: macOS 13 or later, Apple Silicon only (`aarch64-apple-darwin`).
 - `windows`: Windows 10/11, x64 (`x86_64-pc-windows-msvc`).
 
-When the game is released, also update the release-related copy in `index.html`:
-
-- the status chip in the hero
-- the download introduction and footnote
-- the "Can I play it now?" FAQ answer
-- `availability` in the JSON-LD block
+Run the download behavior checks with `node --test tests/downloads.test.cjs`.
 
 ## Page structure
 
@@ -68,7 +66,7 @@ When the game is released, also update the release-related copy in `index.html`:
 | Worlds | `#worlds` | Lyth and Khalion, with postcards that open in the lightbox |
 | Gameplay | `#gameplay` | Real in-game screenshots in auto-advancing tabs, and the stats row |
 | Promise | `#free` | The free-to-play commitments |
-| Download | `#download` | Stub platform cards driven by `downloads.js` |
+| Download | `#download` | Latest-release installers and matching release notes, driven by `downloads.js` |
 | FAQ | `#faq` | Native `<details>` disclosures |
 
 Each featured Stellan has a shareable deep link, for example `/#stellan-ren`.
@@ -76,8 +74,8 @@ Each featured Stellan has a shareable deep link, for example `/#stellan-ren`.
 ### Files
 
 - `assets/css/site.css`: design tokens (the game's night navy, cream ink, gold and ice palette), layout and responsive rules.
-- `assets/js/site.js`: header and mobile menu, starfield, parallax, prologue scroller, Stellan spotlight, feature tabs, lightbox and download wiring.
-- `assets/js/downloads.js`: release URLs.
+- `assets/js/site.js`: header and mobile menu, starfield, parallax, prologue scroller, Stellan spotlight, feature tabs and lightbox.
+- `assets/js/downloads.js`: latest-release lookup, platform installer selection and release notes.
 - `assets/img/`: WebP artwork, screenshots, icons, `og-image.jpg` (the 1200×630 social preview) and favicons.
 - `assets/fonts/`: subset WOFF2 builds of DM Sans and Libre Caslon Display, the fonts the game uses. Their licenses are in `assets/licenses/`.
 
@@ -88,7 +86,7 @@ Without JavaScript the page stays complete:
 - The featured Stellans render as a list.
 - Postcards and **View illustration** links open the image directly.
 - FAQs still expand.
-- Downloads keep their placeholder state.
+- Download and release-notes links open the latest release on GitHub.
 
 With `prefers-reduced-motion`, the starfield, parallax, autoplay and entrance animations are disabled.
 

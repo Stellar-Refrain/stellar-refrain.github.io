@@ -47,7 +47,7 @@
         "genre": ["Role-playing", "Strategy"],
         "gamePlatform": ["macOS", "Windows"],
         "operatingSystem": "macOS 13 or later (Apple Silicon), Windows 10 or 11 (x64)",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
       }
     </script>
   </head>
@@ -101,7 +101,7 @@
         <div class="hero-shade" aria-hidden="true"></div>
 
         <div class="container hero-inner">
-          <p class="status-chip"><span class="status-dot" aria-hidden="true"></span>In development <span aria-hidden="true">·</span> Free to play</p>
+          <p class="status-chip"><span class="status-dot" aria-hidden="true"></span>Available now <span aria-hidden="true">·</span> Free to play</p>
           <h1 class="wordmark" id="hero-title">
             <svg class="wordmark-crest" aria-hidden="true"><use href="#i-crest"/></svg>
             <span class="wordmark-top">Stellar</span>
@@ -597,7 +597,7 @@
           <header class="section-head center" data-reveal>
             <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Your next chapter</p>
             <h2 class="display" id="download-title">There’s a place for you<br class="br-wide"> among the stars.</h2>
-            <p class="lede" data-download-intro>Stellar Refrain is in private preview. Public downloads will appear here as soon as they’re ready.</p>
+            <p class="lede" data-download-intro>Your journey starts here. Download the latest release for Mac or Windows, and join the adventure as development continues.</p>
           </header>
 
           <div class="platform-grid">
@@ -608,14 +608,13 @@
                   <h3>macOS</h3>
                   <p>Apple Silicon (M-series)</p>
                 </div>
-                <span class="release-state" data-release-state>In development</span>
+                <span class="release-state" data-release-state>Latest release</span>
               </div>
               <ul class="platform-reqs">
                 <li>macOS 13 Ventura or later</li>
                 <li>Apple Silicon Macs only</li>
               </ul>
-              <button class="btn btn-block btn-disabled" type="button" disabled data-download-placeholder>Coming soon</button>
-              <a class="btn btn-gold btn-block" data-download-link hidden><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>Download for Mac</span></a>
+              <a class="btn btn-gold btn-block" href="https://github.com/Stellar-Refrain/downloads/releases/latest" data-download-link><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>View Mac downloads</span></a>
             </article>
             <article class="platform" data-platform="windows" data-reveal style="--d:1">
               <div class="platform-head">
@@ -624,17 +623,19 @@
                   <h3>Windows</h3>
                   <p>Intel &amp; AMD (x64)</p>
                 </div>
-                <span class="release-state" data-release-state>In development</span>
+                <span class="release-state" data-release-state>Latest release</span>
               </div>
               <ul class="platform-reqs">
                 <li>Windows 10 or 11, 64-bit</li>
                 <li>Intel or AMD processor</li>
               </ul>
-              <button class="btn btn-block btn-disabled" type="button" disabled data-download-placeholder>Coming soon</button>
-              <a class="btn btn-gold btn-block" data-download-link hidden><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>Download for Windows</span></a>
+              <a class="btn btn-gold btn-block" href="https://github.com/Stellar-Refrain/downloads/releases/latest" data-download-link><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>View Windows downloads</span></a>
             </article>
           </div>
-          <p class="download-note">Free to play <span aria-hidden="true">·</span> No release date announced yet</p>
+          <div class="download-actions">
+            <a class="btn btn-glass" href="https://github.com/Stellar-Refrain/downloads/releases/latest" data-release-notes><span data-release-notes-label>Release notes on GitHub</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <p class="download-note">Free to play <span aria-hidden="true">·</span> Installation instructions are included with each release</p>
         </div>
       </section>
 
@@ -665,11 +666,11 @@
             </details>
             <details>
               <summary>Which platforms are supported?<span class="faq-icon" aria-hidden="true"></span></summary>
-              <div class="faq-answer"><p>The first releases are planned for Macs with Apple Silicon running macOS 13 or later, and for 64-bit Windows 10 and 11 PCs. Other platforms aren’t planned for the first release.</p></div>
+              <div class="faq-answer"><p>Stellar Refrain is available for Macs with Apple Silicon running macOS 13 or later, and for 64-bit Windows 10 and 11 PCs.</p></div>
             </details>
             <details>
               <summary>Can I play it now?<span class="faq-icon" aria-hidden="true"></span></summary>
-              <div class="faq-answer"><p>Not yet. Stellar Refrain is in a private preview while development continues, and a public release date hasn’t been announced. The Mac and Windows downloads will appear on this page when they’re ready.</p></div>
+              <div class="faq-answer"><p>Yes. Get the latest Mac or Windows build from the <a href="#download">download section</a>. The game is free to play and in active development. Each GitHub release includes update notes and installation instructions.</p></div>
             </details>
           </div>
         </div>

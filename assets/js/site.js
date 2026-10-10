@@ -468,20 +468,5 @@
     lightbox.addEventListener('close', () => { image.removeAttribute('src'); });
   }
 
-  /* Downloads: see assets/js/downloads.js ------------------------------------------------ */
-  for (const card of $$('[data-platform]')) {
-    const release = window.STELLAR_DOWNLOADS?.[card.dataset.platform];
-    if (!release?.url?.trim()) continue;
-    let url;
-    try { url = new URL(release.url, document.baseURI); } catch { continue; }
-    if (!['https:', 'http:'].includes(url.protocol)) continue;
-    const link = $('[data-download-link]', card);
-    link.href = url.href;
-    if (release.label) $('[data-download-label]', link).textContent = release.label;
-    link.hidden = false;
-    $('[data-download-placeholder]', card).hidden = true;
-    $('[data-release-state]', card).textContent = release.version || 'Available now';
-  }
-
   $$('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });
 })();
