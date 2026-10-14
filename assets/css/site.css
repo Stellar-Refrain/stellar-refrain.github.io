@@ -543,6 +543,7 @@ html:not(.js) .stellan { border-bottom: 1px solid var(--line); }
 .stats li + li { padding-left: 24px; border-left: 1px solid var(--line); }
 .stats strong { color: var(--gold); font: 400 clamp(48px, 5vw, 72px)/1 var(--serif); font-variant-numeric: tabular-nums; }
 .stats span { color: var(--muted); font-size: 15px; max-width: 22ch; }
+.stats-note { margin-top: 20px; color: var(--muted); font-size: 13px; }
 
 /* Promise ------------------------------------------------------------------- */
 .promise { background: radial-gradient(ellipse 60% 55% at 50% 40%, rgba(231, 205, 153, .08), transparent 70%), var(--bg); }
