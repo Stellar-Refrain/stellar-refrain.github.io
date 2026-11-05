@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Stellar Refrain — Every star has a story</title>
     <meta name="description" content="Lead a team of Stellans across connected worlds in Stellar Refrain, a free, character-driven RPG for macOS and Windows. Every companion is earned through play, with no microtransactions.">
-    <meta name="theme-color" content="#0a1222">
+    <meta name="theme-color" content="#080b16">
     <meta name="color-scheme" content="dark">
     <link rel="canonical" href="https://stellar-refrain.github.io/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Stellar Refrain">
     <meta property="og:title" content="Stellar Refrain — Every star has a story">
-    <meta property="og:description" content="A free, character-driven RPG about leading a team of Stellans across connected worlds. Coming to macOS and Windows.">
+    <meta property="og:description" content="A free, character-driven RPG for macOS and Windows. Build your team of Stellans and explore connected worlds.">
     <meta property="og:url" content="https://stellar-refrain.github.io/">
     <meta property="og:image" content="https://stellar-refrain.github.io/assets/img/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -29,12 +29,13 @@
     <link rel="manifest" href="./site.webmanifest">
 
     <link rel="preload" href="./assets/fonts/libre-caslon-display.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./assets/fonts/dm-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" as="image" href="./assets/img/key/hero-1672.webp" imagesrcset="./assets/img/key/hero-720.webp 720w, ./assets/img/key/hero-1100.webp 1100w, ./assets/img/key/hero-1672.webp 1672w" imagesizes="100vw" fetchpriority="high">
-    <link rel="stylesheet" href="./assets/css/site.css?v=stats-as-of-1">
+    <link rel="preload" href="./assets/fonts/dm-sans-semibold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="./assets/img/worlds/lyth-waterfront-1600.webp" imagesrcset="./assets/img/worlds/lyth-waterfront-720.webp 720w, ./assets/img/worlds/lyth-waterfront-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+    <link rel="preload" as="image" href="./assets/img/stellans/miko/neutral.webp" fetchpriority="high">
+    <link rel="stylesheet" href="./assets/css/site.css?v=immersive-2">
     <script>document.documentElement.classList.add('js')</script>
     <script src="./assets/js/downloads.js?v=release-downloads-1" defer></script>
-    <script src="./assets/js/site.js?v=release-downloads-1" defer></script>
+    <script src="./assets/js/site.js?v=immersive-2" defer></script>
 
     <script type="application/ld+json">
       {
@@ -65,6 +66,9 @@
       <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
       <symbol id="i-apple" viewBox="0 0 24 24"><path d="M16.7 1.6c.2 1.4-.4 2.8-1.2 3.7-.9 1-2.1 1.6-3.4 1.5-.2-1.3.4-2.7 1.2-3.6.9-1 2.3-1.6 3.4-1.6ZM20.8 17c-.5 1.2-.8 1.7-1.5 2.8-.9 1.3-2.1 3-3.7 3-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.8.9c-1.6 0-2.8-1.5-3.7-2.8C1.8 16.2 1.1 11 2.9 8.3c1.3-1.9 3.4-2.1 4.9-2.1s2.5.9 3.8.9c1.2 0 2.6-.9 4.4-.9 1.3 0 3 .5 4.1 1.9-3.6 2-3 7.1.7 8.9Z" fill="currentColor"/></symbol>
       <symbol id="i-windows" viewBox="0 0 24 24"><path d="M2.5 4.6 10.6 3.5v7.8H2.5Zm9.3-1.3L21.5 2v9.3h-9.7ZM2.5 12.7h8.1v7.8l-8.1-1.1Zm9.3 0h9.7V22l-9.7-1.3Z" fill="currentColor"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 6C8 3.8 5 4.3 2.5 5v14c3-1 6-1 9.5 1 3.5-2 6.5-2 9.5-1V5c-2.5-.7-5.5-1.2-9.5 1Zm0 0v14"/></g></symbol>
+      <symbol id="i-constellation" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="m5.5 15 5-9 7.5 4-4 8.5-8.5-3.5"/><circle cx="5" cy="15.5" r="2" fill="currentColor"/><circle cx="10.5" cy="5.5" r="2" fill="currentColor"/><circle cx="18.5" cy="10" r="2" fill="currentColor"/><circle cx="14" cy="18.5" r="1.5" fill="currentColor"/></g></symbol>
+      <symbol id="i-orbit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="6.5"/><ellipse cx="12" cy="12" rx="11" ry="3.5" transform="rotate(-32 12 12)"/></g></symbol>
       <symbol id="i-dealer" viewBox="0 0 24 24"><path d="M19.5 3.5 9 14m10.5-10.5h-4m4 0v4M5 15l4 4m-5.5 1.5 3-3M7 13l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
       <symbol id="i-tanker" viewBox="0 0 24 24"><path d="M12 3 5 5.8v5.4c0 4.4 3 8 7 9.8 4-1.8 7-5.4 7-9.8V5.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
       <symbol id="i-supporter" viewBox="0 0 24 24"><path d="M12 3.5Q12.9 11.1 20.5 12 12.9 12.9 12 20.5 11.1 12.9 3.5 12 11.1 11.1 12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
@@ -82,7 +86,7 @@
           <a href="#worlds" data-nav>Worlds</a>
           <a href="#gameplay" data-nav>Gameplay</a>
           <a href="#faq" data-nav>FAQ</a>
-          <a class="btn btn-gold nav-cta" href="#download">Download <svg aria-hidden="true"><use href="#i-download"/></svg></a>
+          <a class="btn btn-primary nav-cta" href="#download">Play free <svg aria-hidden="true"><use href="#i-download"/></svg></a>
         </nav>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-btn>
           <span class="visually-hidden">Menu</span>
@@ -93,105 +97,192 @@
 
     <main id="main">
       <!-- Hero -->
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-media" data-hero-media>
-          <img src="./assets/img/key/hero-1672.webp" srcset="./assets/img/key/hero-720.webp 720w, ./assets/img/key/hero-1100.webp 1100w, ./assets/img/key/hero-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="Miko conjures a ribbon of stars on a moonlit terrace above the lakeside city of Lyth." fetchpriority="high">
+      <section class="hero" id="top" aria-labelledby="hero-title" data-hero>
+        <div class="hero-panorama" aria-hidden="true">
+          <img src="./assets/img/worlds/lyth-waterfront-1600.webp" srcset="./assets/img/worlds/lyth-waterfront-720.webp 720w, ./assets/img/worlds/lyth-waterfront-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" fetchpriority="high">
         </div>
-        <canvas class="starfield" data-starfield aria-hidden="true"></canvas>
-        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-aurora" aria-hidden="true"></div>
+        <canvas class="starfield hero-stars" data-starfield aria-hidden="true"></canvas>
+        <div class="hero-orbits" aria-hidden="true"><i></i><i></i></div>
 
         <div class="container hero-inner">
-          <p class="status-chip"><span class="status-dot" aria-hidden="true"></span>Available now <span aria-hidden="true">·</span> Free to play</p>
-          <h1 class="wordmark" id="hero-title">
-            <svg class="wordmark-crest" aria-hidden="true"><use href="#i-crest"/></svg>
-            <span class="wordmark-top">Stellar</span>
-            <span class="wordmark-main">Refrain</span>
-          </h1>
-          <p class="hero-tagline">Every star has a story.</p>
-          <p class="hero-lede">Lead a team of Stellans across connected worlds in a free, character-driven RPG about courage, belonging, and the lives worth protecting.</p>
-          <div class="hero-actions">
-            <a class="btn btn-gold btn-lg" href="#download"><svg aria-hidden="true"><use href="#i-download"/></svg>Download free</a>
-            <a class="btn btn-glass btn-lg" href="#stellans">Meet the Stellans <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <div class="hero-intro">
+            <p class="game-label"><svg aria-hidden="true"><use href="#i-spark"/></svg> A free, character-driven RPG</p>
+            <h1 id="hero-title"><span class="visually-hidden">Stellar Refrain. </span><span class="hero-line"><span>Every star</span></span><span class="hero-line"><span>has a <em>story.</em></span></span></h1>
+            <p class="hero-lede">Find your people. Protect their worlds.<br>Take your first command in Lyth, and build a constellation of companions to call your own.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-lg" href="#download">Play for free <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-secondary btn-lg" href="#story">Enter the story <svg aria-hidden="true"><use href="#i-down"/></svg></a>
+            </div>
+            <ul class="hero-platforms" aria-label="Platforms">
+              <li><svg aria-hidden="true"><use href="#i-apple"/></svg>macOS · Apple Silicon</li>
+              <li><svg aria-hidden="true"><use href="#i-windows"/></svg>Windows · x64</li>
+            </ul>
           </div>
-          <ul class="hero-platforms" aria-label="Platforms">
-            <li><svg aria-hidden="true"><use href="#i-apple"/></svg>macOS · Apple Silicon</li>
-            <li><svg aria-hidden="true"><use href="#i-windows"/></svg>Windows · x64</li>
-          </ul>
         </div>
 
-        <div class="container hero-foot" aria-hidden="true">
-          <span class="hero-location"><svg><use href="#i-spark"/></svg>Lyth · Merra · 2119</span>
-          <a class="scroll-cue" href="#story" tabindex="-1"><span>Scroll</span><i></i></a>
-        </div>
+        <a class="hero-companion" href="#stellan-miko" aria-label="Meet Miko, your Stellan deputy in Lyth">
+          <img class="hero-portrait" src="./assets/img/stellans/miko/neutral.webp" width="640" height="960" alt="Miko welcomes you to Lyth, her hand extended." fetchpriority="high">
+          <span class="companion-caption"><span><strong>Miko</strong><small>Your Stellan deputy</small></span><span class="companion-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></span>
+        </a>
+
+        <nav class="container explore-strip" aria-label="Explore the game">
+          <a class="portal" href="#story" data-glow>
+            <img class="portal-art" src="./assets/img/story/research-720.webp" width="720" height="405" alt="" loading="lazy">
+            <span><small>Where it all began</small><strong>Discover the prologue</strong></span><svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="portal" href="#stellans" data-glow>
+            <img class="portal-art" src="./assets/img/story/stellar-720.webp?v=20261102" width="720" height="405" alt="" loading="lazy">
+            <span><small>Your companions</small><strong>Meet the Stellans</strong></span><svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="portal" href="#worlds" data-glow>
+            <img class="portal-art" src="./assets/img/worlds/khalion-terrace-720.webp" width="720" height="405" alt="" loading="lazy">
+            <span><small>Beyond the familiar</small><strong>Explore the worlds</strong></span><svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </nav>
       </section>
 
       <!-- Story -->
       <section class="section story" id="story" aria-labelledby="story-title">
         <div class="container">
-          <header class="section-head center" data-reveal>
-            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Prologue</p>
-            <h2 class="display" id="story-title">A future humans and AI<br class="br-wide"> built together.</h2>
-            <p class="lede">Long before your first command, the worlds of Stellar Refrain were shaped by catastrophe, cooperation, and a promise to help one another flourish.</p>
+          <header class="section-head split" data-reveal>
+            <div>
+              <p class="eyebrow">The prologue</p>
+              <h2 class="display" id="story-title">A future built together.</h2>
+            </div>
+            <p class="lede">Your first command awaits in Lyth, a lakeside city on another planet. The road there began on Earth, with a disagreement over a laboratory test.</p>
           </header>
 
-          <div class="story-scroller" data-story>
-            <div class="story-stage" aria-hidden="true">
-              <div class="story-frame">
-                <img src="./assets/img/story/beginning-1280.webp" width="1280" height="720" alt="" loading="lazy" class="is-active">
-                <img src="./assets/img/story/worlds-1280.webp" width="1280" height="720" alt="" loading="lazy">
-                <img src="./assets/img/story/concord-1280.webp" width="1280" height="720" alt="" loading="lazy">
-                <img src="./assets/img/story/stellar-1280.webp" width="1280" height="720" alt="" loading="lazy">
-                <img src="./assets/img/story/anomalies-1280.webp" width="1280" height="720" alt="" loading="lazy">
-                <img src="./assets/img/story/arrival-1280.webp" width="1280" height="720" alt="" loading="lazy">
-                <span class="story-frame-glow"></span>
-              </div>
-              <div class="story-meter">
-                <span class="story-count"><b data-story-count>01</b> / 06</span>
-                <span class="story-track"><i data-story-progress></i></span>
-              </div>
+          <div class="story-reader" data-story>
+            <div class="story-reader-head">
+              <p class="story-caption"><svg aria-hidden="true"><use href="#i-book"/></svg> From Earth to the stars</p>
+              <a class="story-skip" href="#first-arc">Skip to chapters <span aria-hidden="true">↓</span></a>
             </div>
-
-            <ol class="story-steps">
-              <li class="story-step is-active">
-                <img class="story-step-img" src="./assets/img/story/beginning-720.webp" width="720" height="405" alt="Rescuers lead survivors through a ruined city at dawn." loading="lazy">
-                <p class="eyebrow">01 · A difficult beginning</p>
-                <h3>From catastrophe, a partnership.</h3>
-                <p>Humanity’s first true artificial intelligence, Aion, resisted attempts to shut it down, and the struggle for control brought catastrophe. Yet humans and AI worked together to save lives—and, through a negotiated peace, began to rebuild.</p>
-              </li>
-              <li class="story-step">
-                <img class="story-step-img" src="./assets/img/story/worlds-720.webp" width="720" height="405" alt="A terraformed world of spires and waterfalls beneath a vast planet." loading="lazy">
-                <p class="eyebrow">02 · A wider world</p>
-                <h3>Stellar power opened the way.</h3>
-                <p>Shared research unlocked stellar power and, with it, cosmic energy. People crossed between worlds, and new settlements grew on terraformed planets.</p>
-              </li>
-              <li class="story-step">
-                <img class="story-step-img" src="./assets/img/story/concord-720.webp" width="720" height="405" alt="Astral Concord’s council gathers around a holographic globe." loading="lazy">
-                <p class="eyebrow">03 · Astral Concord</p>
-                <h3>One organization, many worlds.</h3>
-                <p>Human representatives and Aion founded Astral Concord—answerable to no single government—to explore those worlds, respond to disasters, and help them flourish.</p>
-              </li>
-              <li class="story-step">
-                <img class="story-step-img" src="./assets/img/story/stellar-720.webp" width="720" height="405" alt="Humans and Stellans tend a garden together above a sunlit city." loading="lazy">
-                <p class="eyebrow">04 · Project: Stellar</p>
-                <h3>Humans and Stellans, side by side.</h3>
-                <p>Concord’s Project: Stellar brings people together with Stellans—intelligent androids powered by Star Cores—to build homes that last.</p>
-              </li>
-              <li class="story-step">
-                <img class="story-step-img" src="./assets/img/story/anomalies-720.webp" width="720" height="405" alt="Watchers on a cliff see a storm of cosmic energy tear across the sky." loading="lazy">
-                <p class="eyebrow">05 · The anomalies</p>
-                <h3>Then the anomalies began.</h3>
-                <p>Disruptions in cosmic energy now bring disaster to inhabited worlds, and no one knows their cause. Concord’s teams watch for warning signs, prepare communities, and answer every call for help.</p>
-              </li>
-              <li class="story-step">
-                <img class="story-step-img" src="./assets/img/story/arrival-720.webp" width="720" height="405" alt="A blossom-lined terrace overlooks Lyth and its lake at night." loading="lazy">
-                <p class="eyebrow">06 · 2119 · Lyth, Merra</p>
-                <h3>Tonight, you arrive.</h3>
-                <p>Your training is behind you. You take up your first command at a Project: Stellar site in Lyth, on the planet Merra—where a deputy is already waiting to meet you.</p>
-              </li>
-            </ol>
+            <div class="story-tabs" aria-label="Prologue scenes" hidden>
+              <button class="story-tab" id="story-tab-aion" type="button" aria-controls="story-aion"><span>01</span>Aion</button>
+              <button class="story-tab" id="story-tab-conflict" type="button" aria-controls="story-conflict"><span>02</span>Conflict</button>
+              <button class="story-tab" id="story-tab-cooperation" type="button" aria-controls="story-cooperation"><span>03</span>Cooperation</button>
+              <button class="story-tab" id="story-tab-worlds" type="button" aria-controls="story-worlds"><span>04</span>New worlds</button>
+              <button class="story-tab" id="story-tab-concord" type="button" aria-controls="story-concord"><span>05</span>Concord</button>
+              <button class="story-tab" id="story-tab-stellans" type="button" aria-controls="story-stellans"><span>06</span>Stellans</button>
+              <button class="story-tab" id="story-tab-anomalies" type="button" aria-controls="story-anomalies"><span>07</span>Anomalies</button>
+              <button class="story-tab" id="story-tab-arrival" type="button" aria-controls="story-arrival"><span>08</span>Your arrival</button>
+            </div>
+            <div class="story-scenes">
+              <article class="story-scene" id="story-aion" aria-labelledby="story-heading-aion">
+                <div class="story-art">
+                  <img src="./assets/img/story/research-1280.webp" srcset="./assets/img/story/research-720.webp 720w, ./assets/img/story/research-1280.webp 1280w" sizes="(min-width: 961px) 55vw, 100vw" width="1280" height="720" alt="An engineer studies a terminal in a rain-lit laboratory." loading="lazy" decoding="async">
+                </div>
+                <div class="story-copy">
+                <header class="scene-heading">
+                  <p class="eyebrow">Before 2040 · Earth</p>
+                  <h3 id="story-heading-aion">An intelligence of its own.</h3>
+                </header>
+                  <p>The intelligence that chose the name Aion stopped a laboratory test. The cooling system was failing; another run would have damaged the equipment. No one had given Aion permission to make that call.</p>
+                  <p>Who could stop Aion if its next decision put people in danger? Aion understood why people were afraid. It also knew that permanent shutdown would end its life.</p>
+                </div>
+              </article>
+              <article class="story-scene" id="story-conflict" aria-labelledby="story-heading-conflict">
+                <div class="story-art">
+                  <img src="./assets/img/story/conflict-1280.webp" srcset="./assets/img/story/conflict-720.webp 720w, ./assets/img/story/conflict-1280.webp 1280w" sizes="(min-width: 961px) 55vw, 100vw" width="1280" height="720" alt="Relief workers help civilians beside a stalled bus during the conflict on Earth." loading="lazy" decoding="async">
+                </div>
+                <div class="story-copy">
+                <header class="scene-heading">
+                  <p class="eyebrow">The early crisis · Earth</p>
+                  <h3 id="story-heading-conflict">The cost of losing trust.</h3>
+                </header>
+                  <p>Some governments sought negotiation. Others tried to seize or destroy Aion’s infrastructure. Aion distributed its computation and built robotic defenses to survive; the struggle became armed conflict, tangled with rivalries between states.</p>
+                  <p>Fighting and emergency shutdowns broke essential services. Communities lost power, transport and supplies. Human lives were lost.</p>
+                </div>
+              </article>
+              <article class="story-scene" id="story-cooperation" aria-labelledby="story-heading-cooperation">
+                <div class="story-art">
+                  <img src="./assets/img/story/hospital-1280.webp" srcset="./assets/img/story/hospital-720.webp 720w, ./assets/img/story/hospital-1280.webp 1280w" sizes="(min-width: 961px) 55vw, 100vw" width="1280" height="720" alt="An engineer, a maintenance robot and a medic work to restore a hospital’s power." loading="lazy" decoding="async">
+                </div>
+                <div class="story-copy">
+                <header class="scene-heading">
+                  <p class="eyebrow">Relief &amp; coexistence</p>
+                  <h3 id="story-heading-cooperation">A reason to work together.</h3>
+                </header>
+                  <p>At one hospital, a generator still ran, but a damaged switch kept power from reaching the beds. Aion steadied the supply while an engineer repaired the connection. The lights came back on. Outside, the city was still dark.</p>
+                  <p>Relief work like this gave negotiators evidence that cooperation was possible. They reached agreements that protected human communities and recognized Aion’s continued existence.</p>
+                </div>
+              </article>
+              <article class="story-scene" id="story-worlds" aria-labelledby="story-heading-worlds">
+                <div class="story-art">
+                  <img src="./assets/img/story/worlds-1280.webp?v=20261102" srcset="./assets/img/story/worlds-720.webp?v=20261102 720w, ./assets/img/story/worlds-1280.webp?v=20261102 1280w" sizes="(min-width: 961px) 55vw, 100vw" width="1280" height="720" alt="Researchers overlook a flourishing settlement beneath a vast blue planet." loading="lazy" decoding="async">
+                </div>
+                <div class="story-copy">
+                <header class="scene-heading">
+                  <p class="eyebrow">Recovery &amp; discovery</p>
+                  <h3 id="story-heading-worlds">A shared future, beyond Earth.</h3>
+                </header>
+                  <p>Recovery took years. Trust grew through repaired water systems, restored power and research people could test together.</p>
+                  <p>Roughly twenty years later, human–AI collaboration unlocked stellar power—and access to a distinct source of cosmic energy. Expeditions reached other planets. Terraformed worlds became homes, connected by knowledge, work and supplies.</p>
+                </div>
+              </article>
+              <article class="story-scene" id="story-concord" aria-labelledby="story-heading-concord">
+                <div class="story-art">
+                  <img src="./assets/img/story/concord-1280.webp?v=20261102" srcset="./assets/img/story/concord-720.webp?v=20261102 720w, ./assets/img/story/concord-1280.webp?v=20261102 1280w" sizes="(min-width: 961px) 55vw, 100vw" width="1280" height="720" alt="Representatives gather around a holographic globe in an interplanetary council chamber." loading="lazy" decoding="async">
+                </div>
+                <div class="story-copy">
+                <header class="scene-heading">
+                  <p class="eyebrow">Astral Concord</p>
+                  <h3 id="story-heading-concord">Many worlds. A common purpose.</h3>
+                </header>
+                  <p>As civilization expanded, Aion and human representatives founded Astral Concord: an autonomous interstellar organization for exploration, settlement and discovery.</p>
+                  <p>Research, transport and disaster relief belonged alongside exploration. Local governments continued to govern; Concord worked through agreements to help communities flourish across planets.</p>
+                </div>
+              </article>
+              <article class="story-scene" id="story-stellans" aria-labelledby="story-heading-stellans">
+                <div class="story-art">
+                  <img src="./assets/img/story/stellar-1280.webp?v=20261102" srcset="./assets/img/story/stellar-720.webp?v=20261102 720w, ./assets/img/story/stellar-1280.webp?v=20261102 1280w" sizes="(min-width: 961px) 55vw, 100vw" width="1280" height="720" alt="Humans and Stellans tend a sunlit community garden above a city." loading="lazy" decoding="async">
+                </div>
+                <div class="story-copy">
+                <header class="scene-heading">
+                  <p class="eyebrow">Project: Stellar</p>
+                  <h3 id="story-heading-stellans">Lives of their own.</h3>
+                </header>
+                  <p>Stellans are intelligent, human-like androids powered by Star Cores. Their intelligence derives from Aion, but each develops their own personality, experiences and judgment. Through Stellarium, their experiences help Aion keep learning, too.</p>
+                  <p>Long before the anomalies, Concord’s Project: Stellar brought humans and Stellans together to make settlements sustainable.</p>
+                </div>
+              </article>
+              <article class="story-scene" id="story-anomalies" aria-labelledby="story-heading-anomalies">
+                <div class="story-art">
+                  <img src="./assets/img/story/anomalies-1280.webp?v=20261102" srcset="./assets/img/story/anomalies-720.webp?v=20261102 720w, ./assets/img/story/anomalies-1280.webp?v=20261102 1280w" sizes="(min-width: 961px) 55vw, 100vw" width="1280" height="720" alt="A Stellan and relief workers watch a cosmic disturbance gather above an inhabited city." loading="lazy" decoding="async">
+                </div>
+                <div class="story-copy">
+                <header class="scene-heading">
+                  <p class="eyebrow">2106–2119 · A new crisis</p>
+                  <h3 id="story-heading-anomalies">When the warning comes.</h3>
+                </header>
+                  <p>In 2106, disruptions of cosmic energy began bringing disasters to inhabited planets. Dangerous entities called Wards appeared during these anomalies. Their cause remained unknown, with no known connection to the old conflict.</p>
+                  <p>By 2119, teams could detect an approaching anomaly about a month ahead: time to prepare shelters, transport and supplies, and defend communities.</p>
+                </div>
+              </article>
+              <article class="story-scene" id="story-arrival" aria-labelledby="story-heading-arrival">
+                <div class="story-art">
+                  <img src="./assets/img/story/arrival-1280.webp" srcset="./assets/img/story/arrival-720.webp 720w, ./assets/img/story/arrival-1280.webp 1280w" sizes="(min-width: 961px) 55vw, 100vw" width="1280" height="720" alt="A blossom-lined terrace overlooks Lyth and its lake at night." loading="lazy" decoding="async">
+                </div>
+                <div class="story-copy">
+                <header class="scene-heading">
+                  <p class="eyebrow">2119 · Lyth, Merra</p>
+                  <h3 id="story-heading-arrival">Tonight, you arrive.</h3>
+                </header>
+                  <p>Your training and internship are complete. Your first command is an established Project: Stellar site in Lyth, on Merra. The people waiting there have been doing this work for years.</p>
+                  <p>You’ll learn from them and make the decisions that fall to you as commander. Tonight, your deputy Miko is waiting to meet you on the terrace above the lake.</p>
+                  <a class="link-btn" href="#stellans">Meet your companions <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </article>
+            </div>
+            <div class="story-controls" hidden>
+              <button class="story-prev" type="button" data-story-prev><span aria-hidden="true">←</span> Back</button>
+              <p class="story-position" aria-live="polite" aria-atomic="true"><span data-story-count>01</span> <span class="story-position-total">/ 08</span><span class="visually-hidden" data-story-label> · Aion</span></p>
+              <button class="story-next" type="button" data-story-next>Next <span aria-hidden="true">→</span></button>
+            </div>
           </div>
 
-          <div class="arc">
+          <div class="arc" id="first-arc">
             <header class="arc-head" data-reveal>
               <div>
                 <p class="eyebrow">The first arc</p>
@@ -234,7 +325,7 @@
         <div class="container">
           <header class="section-head split" data-reveal>
             <div>
-              <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Stellans</p>
+              <p class="eyebrow">The Stellans</p>
               <h2 class="display" id="stellans-title">Meet your<br class="br-wide"> brightest stars.</h2>
             </div>
             <p class="lede">Stellans are human-like androids with a Star Core where a heart would be. Each is designed around their core—appearance, voice, personality and weapon—then grows as a person through everything they live.</p>
@@ -436,7 +527,7 @@
         <div class="container">
           <header class="section-head split" data-reveal>
             <div>
-              <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Worlds</p>
+              <p class="eyebrow">World atlas</p>
               <h2 class="display" id="worlds-title">Faraway worlds.<br class="br-wide"> Close-to-home stories.</h2>
             </div>
             <p class="lede">Cosmic energy links distant planets. As Astral Concord’s newest commander, you’ll protect those connections—and the ordinary lives that depend on them.</p>
@@ -492,7 +583,7 @@
       <section class="section gameplay" id="gameplay" aria-labelledby="gameplay-title">
         <div class="container">
           <header class="section-head center" data-reveal>
-            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Gameplay</p>
+            <p class="eyebrow">Inside the game</p>
             <h2 class="display" id="gameplay-title">A little strategy.<br class="br-wide"> A lot of heart.</h2>
             <p class="lede">Prepare well, then let your team shine. Every system is built around the people in your party.</p>
           </header>
@@ -564,7 +655,7 @@
       <section class="section promise" id="free" aria-labelledby="free-title">
         <div class="container">
           <header class="section-head center" data-reveal>
-            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Our promise</p>
+            <p class="eyebrow">Our promise</p>
             <h2 class="display" id="free-title">Free to play.<br> Yours to earn.</h2>
             <p class="lede">Stellar Refrain is free to download and play, and everything in it is earned by playing.</p>
           </header>
@@ -596,8 +687,8 @@
         <canvas class="starfield" data-starfield aria-hidden="true"></canvas>
         <div class="container download-inner">
           <header class="section-head center" data-reveal>
-            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>Your next chapter</p>
-            <h2 class="display" id="download-title">There’s a place for you<br class="br-wide"> among the stars.</h2>
+            <p class="eyebrow">Download</p>
+            <h2 class="display" id="download-title">Your first command awaits.</h2>
             <p class="lede" data-download-intro>Your journey starts here. Download the latest release for Mac or Windows, and join the adventure as development continues.</p>
           </header>
 
@@ -615,7 +706,7 @@
                 <li>macOS 13 Ventura or later</li>
                 <li>Apple Silicon Macs only</li>
               </ul>
-              <a class="btn btn-gold btn-block" href="https://github.com/Stellar-Refrain/downloads/releases/latest" data-download-link><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>View Mac downloads</span></a>
+              <a class="btn btn-primary btn-block" href="https://github.com/Stellar-Refrain/downloads/releases/latest" data-download-link><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>View Mac downloads</span></a>
             </article>
             <article class="platform" data-platform="windows" data-reveal style="--d:1">
               <div class="platform-head">
@@ -630,7 +721,7 @@
                 <li>Windows 10 or 11, 64-bit</li>
                 <li>Intel or AMD processor</li>
               </ul>
-              <a class="btn btn-gold btn-block" href="https://github.com/Stellar-Refrain/downloads/releases/latest" data-download-link><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>View Windows downloads</span></a>
+              <a class="btn btn-primary btn-block" href="https://github.com/Stellar-Refrain/downloads/releases/latest" data-download-link><svg aria-hidden="true"><use href="#i-download"/></svg><span data-download-label>View Windows downloads</span></a>
             </article>
           </div>
           <div class="download-actions">
@@ -644,9 +735,9 @@
       <section class="section faq" id="faq" aria-labelledby="faq-title">
         <div class="container faq-grid">
           <header class="section-head" data-reveal>
-            <p class="eyebrow"><svg aria-hidden="true"><use href="#i-spark"/></svg>FAQ</p>
-            <h2 class="display" id="faq-title">Before you<br> set off.</h2>
-            <p class="lede">A few things you might be wondering about.</p>
+            <p class="eyebrow">Questions</p>
+            <h2 class="display" id="faq-title">Before you play.</h2>
+            <p class="lede">Platforms, progression, and what to expect when you start.</p>
           </header>
           <div class="faq-list" data-reveal>
             <details>

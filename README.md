@@ -60,8 +60,8 @@ Run the download behavior checks with `node --test tests/downloads.test.cjs`.
 
 | Section | Anchor | Notes |
 | --- | --- | --- |
-| Hero | `#top` | Key art, wordmark, starfield canvas and pointer parallax |
-| Prologue | `#story` | Six scroll-driven beats, then the first-arc chapter cards |
+| Hero | `#top` | Layered Lyth panorama, Miko portrait, starfield, platform details and three illustrated links into the game |
+| Prologue | `#story` | Eight illustrated, manually paced scenes, then the first-arc chapter cards at `#first-arc` |
 | Stellans | `#stellans` | Five featured Stellans with roster and expression switcher, then an "And many more" silhouette teaser |
 | Worlds | `#worlds` | Lyth and Khalion, with postcards that open in the lightbox |
 | Gameplay | `#gameplay` | Real in-game screenshots in auto-advancing tabs, and the stats row |
@@ -73,8 +73,8 @@ Each featured Stellan has a shareable deep link, for example `/#stellan-ren`.
 
 ### Files
 
-- `assets/css/site.css`: design tokens (the game's night navy, cream ink, gold and ice palette), layout and responsive rules.
-- `assets/js/site.js`: header and mobile menu, starfield, parallax, prologue scroller, Stellan spotlight, feature tabs and lightbox.
+- `assets/css/site.css`: design tokens, responsive layout, and night surfaces, celestial accents and responsive motion.
+- `assets/js/site.js`: header and mobile menu, starfield, parallax, prologue reader, Stellan spotlight, feature tabs and lightbox.
 - `assets/js/downloads.js`: latest-release lookup, platform installer selection and release notes.
 - `assets/img/`: WebP artwork, screenshots, icons, `og-image.jpg` (the 1200×630 social preview) and favicons.
 - `assets/fonts/`: subset WOFF2 builds of DM Sans and Libre Caslon Display, the fonts the game uses. Their licenses are in `assets/licenses/`.
@@ -83,12 +83,19 @@ Each featured Stellan has a shareable deep link, for example `/#stellan-ren`.
 
 Without JavaScript the page stays complete:
 
+- All eight prologue scenes render in reading order, with their illustrations and copy.
 - The featured Stellans render as a list.
 - Postcards and **View illustration** links open the image directly.
 - FAQs still expand.
 - Download and release-notes links open the latest release on GitHub.
 
-With `prefers-reduced-motion`, the starfield, parallax, autoplay and entrance animations are disabled.
+With `prefers-reduced-motion`, the starfield is still, parallax and autoplay stop, and entrance and scene transitions complete immediately. The hero and world motion update through one animation frame per input event. Continuous starfield drawing pauses when the canvas is outside the viewport or the page is hidden.
+
+### Prologue reader
+
+The prologue is a short public introduction adapted from the current game history. It advances only when a visitor selects a scene or uses Back/Next. Scene tabs use Left/Right and Home/End in both layouts; Tab moves into the selected scene. On narrow screens the scene tabs scroll horizontally and the illustration sits above the text. The first-arc link lets visitors continue down the page immediately.
+
+To edit it, update the matching `.story-tab` and `.story-scene` in `index.html`. Keep their `aria-controls`, ids and order aligned. If the number of scenes changes, update the displayed totals. Only `site.js` adds tab roles and hides inactive scenes, so the full story remains readable without JavaScript.
 
 ### Featured Stellans
 
@@ -118,11 +125,14 @@ The lore, artwork and screenshots come from the `stellar-refrain-game` repositor
 Public copy is adapted from these sources, without author-only notes or plot reveals:
 
 - `content/project.json`: Stellan biographies, roles, traits and quotes.
-- `packages/game-core/src/prologue/prologue.ts`: the in-game prologue.
+- `content/prologue/cinematic-screenplay.json`: the current in-game prologue; the website summarizes its history without reproducing the dramatized dialogue.
+- `docs/design/chapters/cinematic-prologue.md`: canon boundaries and the current artwork selection.
 - `packages/game-core/src/card/game.ts`: classes, titles, signature skills and accent colours.
 - `docs/design/game-direction.md` and `docs/development/earned-progression-handover.md`: the free-to-play and earned-recruitment commitments.
 
 Artwork comes from `assets/library/`:
+
+The website's prologue uses the November 2, 2026 selection: `research-v2`, `conflict-v1`, `hospital-v2`, `worlds-v2`, `concord-v2`, `stellar-v3` and `anomalies-v2`, plus the existing arrival terrace. Each is encoded at 720px and 1280px wide as WebP, preserving the full composition.
 
 - `characters/<id>/art/`: standing portraits, expressions, avatars and illustrations for the featured Stellans. Nana's illustration is `nana-hammer-demonstration.png`. The teaser silhouettes are rendered from Iona, Sena, Celia, Ayame, Ayano, Mel and Rika's standing art, reduced to shapes.
 - `shared/art/prologue/`, `shared/art/moonlit-terrace.png`, `shared/art/star-core-laboratory.png` and `shared/art/currencies/`.

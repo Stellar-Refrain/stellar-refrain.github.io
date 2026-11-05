@@ -6,30 +6,15 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const pad = n => String(n).padStart(2, '0');
 
-  /* Header: glass on scroll, hide while reading down, mobile menu ---------- */
+  /* Persistent navigation and mobile menu ---------------------------------- */
   const header = $('[data-header]');
   const nav = $('#site-nav');
   const menuButton = $('[data-menu-btn]');
   const mobileNav = window.matchMedia('(max-width: 960px)');
-  let lastY = window.scrollY;
-
-  function updateHeader() {
-    const y = window.scrollY;
-    header.classList.toggle('is-scrolled', y > 24);
-    const menuOpen = nav.classList.contains('is-open');
-    if (y < 400 || y < lastY - 6 || menuOpen) header.classList.remove('is-hidden');
-    else if (y > lastY + 6 && !header.contains(document.activeElement)) header.classList.add('is-hidden');
-    lastY = y;
-  }
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  header.addEventListener('focusin', () => header.classList.remove('is-hidden'));
-  updateHeader();
-
   function setMenu(open, restoreFocus = false) {
     menuButton.setAttribute('aria-expanded', String(open));
     $('.visually-hidden', menuButton).textContent = open ? 'Close menu' : 'Menu';
     nav.classList.toggle('is-open', open);
-    document.body.classList.toggle('menu-open', open);
     if (open) $('a', nav).focus();
     else if (restoreFocus) menuButton.focus();
   }
@@ -40,13 +25,12 @@
   document.addEventListener('keydown', event => {
     if (!nav.classList.contains('is-open')) return;
     if (event.key === 'Escape') setMenu(false, true);
-    if (event.key === 'Tab') {
-      const items = [menuButton, ...$$('a', nav)];
-      const index = items.indexOf(document.activeElement);
-      const next = event.shiftKey ? (index <= 0 ? items.length - 1 : index - 1) : (index + 1) % items.length;
-      event.preventDefault();
-      items[next].focus();
-    }
+  });
+  header.addEventListener('focusout', event => {
+    if (event.relatedTarget && !header.contains(event.relatedTarget) && nav.classList.contains('is-open')) setMenu(false);
+  });
+  document.addEventListener('pointerdown', event => {
+    if (nav.classList.contains('is-open') && !header.contains(event.target)) setMenu(false);
   });
   mobileNav.addEventListener('change', () => setMenu(false));
 
@@ -79,7 +63,7 @@
   function starfield(canvas) {
     const context = canvas.getContext('2d');
     if (!context) return;
-    let width = 0, height = 0, stars = [], meteor = null, frame = 0, running = false;
+    let width = 0, height = 0, stars = [], meteor = null, frame = 0, running = false, inView = false;
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
@@ -141,7 +125,7 @@
       frame = requestAnimationFrame(loop);
     }
     function start() {
-      if (running || reducedMotion.matches) return;
+      if (running || reducedMotion.matches || !inView || document.hidden) return;
       running = true;
       frame = requestAnimationFrame(loop);
     }
@@ -151,27 +135,36 @@
     }
 
     new ResizeObserver(resize).observe(canvas);
-    new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop())).observe(canvas);
+    new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      if (inView) start();
+      else stop();
+    }).observe(canvas);
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
     reducedMotion.addEventListener('change', () => { stop(); resize(); start(); });
   }
   $$('[data-starfield]').forEach(starfield);
 
-  /* Hero and world parallax ------------------------------------------------------ */
-  const heroImage = $('[data-hero-media] img');
+  /* Layered hero and world artwork ----------------------------------------- */
+  const hero = $('[data-hero]');
   const parallaxItems = $$('[data-parallax] img');
   const finePointer = window.matchMedia('(pointer: fine)');
-  let pointerX = 0, pointerY = 0, easedX = 0, easedY = 0, parallaxFrame = 0;
   const visibleParallax = new Set();
+  let motionFrame = 0;
+  let pointerX = 0;
+  let pointerY = 0;
 
-  function renderParallax() {
-    parallaxFrame = 0;
+  function renderPageMotion() {
+    motionFrame = 0;
+    const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+    header.style.setProperty('--reading-progress', scrollRange > 0 ? String(window.scrollY / scrollRange) : '0');
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
     if (reducedMotion.matches) return;
-    easedX += (pointerX - easedX) * .07;
-    easedY += (pointerY - easedY) * .07;
-    if (heroImage && window.scrollY < window.innerHeight * 1.2) {
-      heroImage.style.setProperty('--hx', `${easedX.toFixed(2)}px`);
-      heroImage.style.setProperty('--hy', `${(easedY + window.scrollY * .16).toFixed(2)}px`);
+
+    if (hero && window.scrollY < hero.offsetHeight) {
+      hero.style.setProperty('--drift-x', `${pointerX}px`);
+      hero.style.setProperty('--drift-y', `${pointerY}px`);
+      hero.style.setProperty('--scene-scroll', `${Math.min(window.scrollY * .18, 140)}px`);
     }
     if (!mobileNav.matches) {
       for (const img of visibleParallax) {
@@ -180,49 +173,121 @@
         img.style.setProperty('--py', `${(progress * -48).toFixed(1)}px`);
       }
     }
-    if (Math.abs(pointerX - easedX) > .05 || Math.abs(pointerY - easedY) > .05) requestParallax();
   }
-  function requestParallax() {
-    if (!parallaxFrame) parallaxFrame = requestAnimationFrame(renderParallax);
+
+  function requestPageMotion() {
+    if (!motionFrame) motionFrame = requestAnimationFrame(renderPageMotion);
   }
-  window.addEventListener('scroll', requestParallax, { passive: true });
-  window.addEventListener('resize', requestParallax);
-  $('.hero')?.addEventListener('pointermove', event => {
-    if (!finePointer.matches) return;
-    pointerX = (event.clientX / window.innerWidth - .5) * -22;
-    pointerY = (event.clientY / window.innerHeight - .5) * -14;
-    requestParallax();
+
+  window.addEventListener('scroll', requestPageMotion, { passive: true });
+  window.addEventListener('resize', requestPageMotion);
+  reducedMotion.addEventListener('change', requestPageMotion);
+  hero?.addEventListener('pointermove', event => {
+    if (reducedMotion.matches || !finePointer.matches) return;
+    const rect = hero.getBoundingClientRect();
+    pointerX = ((event.clientX - rect.left) / rect.width - .5) * 22;
+    pointerY = ((event.clientY - rect.top) / rect.height - .5) * 14;
+    requestPageMotion();
   });
+  hero?.addEventListener('pointerleave', () => {
+    pointerX = 0;
+    pointerY = 0;
+    requestPageMotion();
+  });
+
+  $$('[data-glow]').forEach(card => {
+    card.addEventListener('pointermove', event => {
+      if (reducedMotion.matches || !finePointer.matches) return;
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--glow-x', `${event.clientX - rect.left}px`);
+      card.style.setProperty('--glow-y', `${event.clientY - rect.top}px`);
+    });
+  });
+
   const parallaxWatcher = new IntersectionObserver(entries => {
     for (const entry of entries) {
       const img = $('img', entry.target);
       if (entry.isIntersecting) visibleParallax.add(img);
       else visibleParallax.delete(img);
     }
-    requestParallax();
+    requestPageMotion();
   });
   parallaxItems.forEach(img => parallaxWatcher.observe(img.parentElement));
+  requestPageMotion();
 
-  /* Prologue: scroll-driven frames ------------------------------------------- */
+  /* Prologue: a manually paced, progressively enhanced reader --------------- */
   const story = $('[data-story]');
   if (story) {
-    const steps = $$('.story-step', story);
-    const frames = $$('.story-frame img', story);
+    const scenes = $$('.story-scene', story);
+    const tabs = $$('.story-tab', story);
+    const tablist = $('.story-tabs', story);
+    const controls = $('.story-controls', story);
     const counter = $('[data-story-count]', story);
-    const progress = $('[data-story-progress]', story);
+    const label = $('[data-story-label]', story);
+    const previous = $('[data-story-prev]', story);
+    const next = $('[data-story-next]', story);
     let activeStep = 0;
-    const setStep = index => {
-      if (index === activeStep || index < 0) return;
+
+    tablist.setAttribute('role', 'tablist');
+    tablist.setAttribute('aria-orientation', 'horizontal');
+    tabs.forEach((tab, index) => {
+      tab.setAttribute('role', 'tab');
+      scenes[index].setAttribute('role', 'tabpanel');
+      scenes[index].setAttribute('aria-labelledby', tab.id);
+      scenes[index].tabIndex = 0;
+    });
+
+    function selectScene(index, { focus = false, revealTab = true } = {}) {
+      if (index < 0 || index >= scenes.length) return;
       activeStep = index;
-      steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
-      frames.forEach((img, i) => img.classList.toggle('is-active', i === index));
+      scenes.forEach((scene, i) => { scene.hidden = i !== index; });
+      tabs.forEach((tab, i) => {
+        tab.setAttribute('aria-selected', String(i === index));
+        tab.tabIndex = i === index ? 0 : -1;
+      });
       counter.textContent = pad(index + 1);
-      progress.style.setProperty('--p', ((index + 1) / steps.length).toFixed(4));
-    };
-    const stepWatcher = new IntersectionObserver(entries => {
-      for (const entry of entries) if (entry.isIntersecting) setStep(steps.indexOf(entry.target));
-    }, { rootMargin: '-48% 0px -48% 0px' });
-    steps.forEach(step => stepWatcher.observe(step));
+      label.textContent = ` · ${$('h3', scenes[index]).textContent}`;
+      previous.disabled = index === 0;
+      next.disabled = index === scenes.length - 1;
+      if (focus) tabs[index].focus({ preventScroll: true });
+      if (revealTab) {
+        const tab = tabs[index];
+        tablist.scrollTo({ left: tab.offsetLeft - (tablist.clientWidth - tab.offsetWidth) / 2, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+      }
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectScene(index));
+      tab.addEventListener('keydown', event => {
+        const targets = {
+          ArrowRight: (index + 1) % tabs.length,
+          ArrowLeft: (index - 1 + tabs.length) % tabs.length,
+          Home: 0, End: tabs.length - 1
+        };
+        if (!(event.key in targets)) return;
+        event.preventDefault();
+        selectScene(targets[event.key], { focus: true });
+      });
+    });
+    function showSceneStart() {
+      // On a phone, the controls sit below the text. Bring the next scene's
+      // illustration back into view so reading continues from its beginning.
+      if (mobileNav.matches) scenes[activeStep].scrollIntoView({ block: 'start', behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    }
+    previous.addEventListener('click', () => {
+      selectScene(activeStep - 1);
+      if (previous.disabled) next.focus({ preventScroll: true });
+      showSceneStart();
+    });
+    next.addEventListener('click', () => {
+      selectScene(activeStep + 1);
+      if (next.disabled) previous.focus({ preventScroll: true });
+      showSceneStart();
+    });
+    selectScene(0, { revealTab: false });
+    tablist.hidden = false;
+    controls.hidden = false;
+    story.classList.add('is-enhanced');
   }
 
   /* Stellans spotlight ------------------------------------------------------------ */
