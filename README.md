@@ -1,6 +1,6 @@
 # Stellar Refrain homepage
 
-The marketing site for Stellar Refrain is a single static page. It has no package installation, build step, backend, analytics or cookies. Fonts and artwork are bundled locally. The download section makes one anonymous request to GitHub's public API to find the latest release.
+The marketing site for Stellar Refrain is a static homepage with separate privacy policy and terms of service pages. It has no package installation, build step, backend, analytics or cookies. Fonts and artwork are bundled locally. The download section makes one anonymous request to GitHub's public API to find the latest release.
 
 ## Preview
 
@@ -24,7 +24,7 @@ Because of the repository name, this is the organization's root GitHub Pages sit
 3. Push to `main`, or run **Deploy homepage to GitHub Pages** manually from the Actions tab.
 4. The `github-pages` environment of the deployment shows the published URL.
 
-`.github/workflows/pages.yml` publishes only these files: `index.html`, `404.html`, `.nojekyll`, `robots.txt`, `sitemap.xml`, `site.webmanifest` and `assets/`. If you add another root file, add it to the workflow's copy step too.
+`.github/workflows/pages.yml` publishes only these files and directories: `index.html`, `404.html`, `.nojekyll`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `assets/`, `privacy/` and `terms/`. If you add another root file or directory, add it to the workflow's copy step too.
 
 Paths in `index.html` are relative, so the page also works from a project subpath such as `https://owner.github.io/repository/`. There are three exceptions:
 
@@ -33,6 +33,18 @@ Paths in `index.html` are relative, so the page also works from a project subpat
 - `sitemap.xml` and `robots.txt` also point at the live domain.
 
 If you set up a custom domain, update all of these.
+
+## Policy pages and Google OAuth
+
+- Privacy policy: <https://stellar-refrain.github.io/privacy/>
+- Terms of service: <https://stellar-refrain.github.io/terms/>
+- Support contact: <jerryrox@outlook.co.nz>
+
+The pages are interim documents for the development release, with links from the homepage footer. They describe basic Google sign-in (`openid`, `email`, `profile`), the game's Supabase accounts and cloud saves, and the static website's GitHub hosting. They are plain HTML, publicly readable without signing in or running JavaScript. Shared reading styles are in `assets/css/legal.css`.
+
+Use these URLs in Google Auth Platform's Branding settings after deployment, along with the homepage URL. Keep the OAuth app in Testing while developing and configure test users as needed. For brand verification, Google requires an accurate privacy policy, matching app identity and verification of the authorized domain; these pages alone do not guarantee approval. See [Google's brand verification requirements](https://developers.google.com/identity/verification/authentication-verification).
+
+Before a broader release, review the documents against the deployed service and legal requirements. Update the policy and its date when scopes, providers, retention or data use change; handle deletion requests through the published contact address.
 
 ## Release downloads
 

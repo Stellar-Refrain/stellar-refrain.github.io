@@ -32,6 +32,7 @@ jobs:
           mkdir -p _site
           cp index.html 404.html .nojekyll robots.txt sitemap.xml site.webmanifest _site/
           cp -R assets _site/assets
+          cp -R privacy terms _site/
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v4
