@@ -68,28 +68,32 @@ Run the download behavior checks with `node --test tests/downloads.test.cjs`.
 
 ## Page structure
 
+The visual direction is "Nocturne": the game's moonlit Home terrace, read as a storybook star chart. It uses the game's newer interface fonts, Marcellus for names, places and titles and Urbanist for interface text and numbers, along with the game's gold notched buttons, four-point crest and night palette.
+
 `index.html` contains every section, in this order:
 
 | Section | Anchor | Notes |
 | --- | --- | --- |
-| Hero | `#top` | Layered Lyth panorama, Miko portrait, starfield, platform details and three illustrated links into the game |
-| Prologue | `#story` | Eight illustrated, manually paced scenes, then the first-arc chapter cards at `#first-arc` |
-| Stellans | `#stellans` | Five featured Stellans with roster and expression switcher, then an "And many more" silhouette teaser |
-| Worlds | `#worlds` | Lyth and Khalion, with postcards that open in the lightbox |
-| Gameplay | `#gameplay` | Real in-game screenshots in auto-advancing tabs, and the stats row |
-| Promise | `#free` | The free-to-play commitments |
-| Download | `#download` | Latest-release installers and matching release notes, driven by `downloads.js` |
+| Hero | `#top` | Key art with petals and starlight drawn over it, the Marcellus wordmark, tagline and platforms |
+| Overture | `#overture` | The opening sentence, which lights up word by word as it scrolls past |
+| Prologue | `#story` | Eight illustrated, manually paced scenes on a star-chart timeline, then the first-arc chapter cards at `#first-arc` |
+| Stellans | `#stellans` | A character-select stage for five featured Stellans, with roster, expressions and typed quotes, then an "And many more" silhouette teaser |
+| Worlds | `#worlds` | A draggable horizon between night-time Lyth and daytime Khalion, notes on each, and postcards that open in the lightbox |
+| Gameplay | `#gameplay` | Real in-game screenshots as a deck that follows the feature list, and the stats marquee |
+| Promise | `#free` | The free-to-play commitments, joined by a constellation line |
+| Download | `#download` | Boarding-pass installers and matching release notes, driven by `downloads.js` |
 | FAQ | `#faq` | Native `<details>` disclosures |
 
 Each featured Stellan has a shareable deep link, for example `/#stellan-ren`.
 
 ### Files
 
-- `assets/css/site.css`: design tokens, responsive layout, and night surfaces, celestial accents and responsive motion.
-- `assets/js/site.js`: header and mobile menu, starfield, parallax, prologue reader, Stellan spotlight, feature tabs and lightbox.
+- `assets/css/site.css`: design tokens, type, responsive layout, section styles and keyframes. The policy pages use it too.
+- `assets/css/legal.css`: the policy pages' reading layout.
+- `assets/js/site.js`: masthead and menu, section rail and sky colour, night sky, hero petals and starlight, overture, prologue reader, Stellan spotlight, horizon, postcard dragging, feature deck, stats marquee, constellation line, tilt and button effects, FAQ disclosures and lightbox.
 - `assets/js/downloads.js`: latest-release lookup, platform installer selection and release notes.
 - `assets/img/`: WebP artwork, screenshots, icons, `og-image.jpg` (the 1200×630 social preview) and favicons.
-- `assets/fonts/`: subset WOFF2 builds of DM Sans and Libre Caslon Display, the fonts the game uses. Their licenses are in `assets/licenses/`.
+- `assets/fonts/`: Latin subsets in WOFF2 of Marcellus and Urbanist (500, 600 and 700), converted from the game's `packages/game-ui/src/fonts/`. Their licenses are in `assets/licenses/`.
 
 ### Progressive enhancement
 
@@ -97,17 +101,21 @@ Without JavaScript the page stays complete:
 
 - All eight prologue scenes render in reading order, with their illustrations and copy.
 - The featured Stellans render as a list.
+- Lyth and Khalion appear side by side instead of behind the draggable horizon.
+- Every gameplay screenshot and feature description is visible.
 - Postcards and **View illustration** links open the image directly.
 - FAQs still expand.
 - Download and release-notes links open the latest release on GitHub.
 
-With `prefers-reduced-motion`, the starfield is still, parallax and autoplay stop, and entrance and scene transitions complete immediately. The hero and world motion update through one animation frame per input event. Continuous starfield drawing pauses when the canvas is outside the viewport or the page is hidden.
+Motion styles are keyed to the `js` class on `<html>`. If `site.js` has not run four seconds after the page starts, an inline script removes that class so nothing stays hidden.
+
+With `prefers-reduced-motion`, the sky, petals and starlight are still, parallax, the marquee and autoplay stop, quotes appear in full, and entrance and scene transitions complete immediately. Scroll-linked effects update once per animation frame. Canvas drawing pauses when the hero is off screen or the page is hidden, and the gameplay tour pauses off screen, on hover and on focus.
 
 ### Prologue reader
 
-The prologue is a short public introduction adapted from the current game history. It advances only when a visitor selects a scene or uses Back/Next. Scene tabs use Left/Right and Home/End in both layouts; Tab moves into the selected scene. On narrow screens the scene tabs scroll horizontally and the illustration sits above the text. The first-arc link lets visitors continue down the page immediately.
+The prologue is a short public introduction adapted from the current game history. It advances only when a visitor selects a scene, uses Back/Next or swipes on a touch screen. Scene tabs use Left/Right and Home/End in both layouts; Tab moves into the selected scene. On narrow screens the timeline scrolls horizontally and the illustration sits above the text. The "Skip to chapters" link lets visitors continue down the page immediately.
 
-To edit it, update the matching `.story-tab` and `.story-scene` in `index.html`. Keep their `aria-controls`, ids and order aligned. If the number of scenes changes, update the displayed totals. Only `site.js` adds tab roles and hides inactive scenes, so the full story remains readable without JavaScript.
+To edit it, update the matching `.story-tab` and `.scene` in `index.html`. Keep their `aria-controls`, ids and order aligned. If the number of scenes changes, update the displayed totals and the timeline's column count in `site.css`. Only `site.js` adds tab roles and hides inactive scenes, so the full story remains readable without JavaScript.
 
 ### Featured Stellans
 
@@ -118,8 +126,8 @@ To swap or add a featured Stellan, copy an existing `<article class="stellan">` 
 - the ids
 - the class badge
 - the `--c` accent colour, from `HEROES` in the game's `packages/game-core/src/card/game.ts`
-- the copy
-- the `/ 05` counter
+- the copy, including the background name in `.stellan-giant` and the dialogue avatar
+- the `01 / 05` counters
 
 Images live in `assets/img/stellans/<id>/`:
 

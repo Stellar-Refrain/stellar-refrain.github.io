@@ -5,25 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lost among the stars — Stellar Refrain</title>
     <meta name="robots" content="noindex">
-    <meta name="theme-color" content="#080b16">
+    <meta name="theme-color" content="#040a18">
     <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
     <style>
-      @font-face { font-family: "Libre Caslon Display"; src: url("/assets/fonts/libre-caslon-display.woff2") format("woff2"); font-display: swap; }
-      @font-face { font-family: "DM Sans"; src: url("/assets/fonts/dm-sans-medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+      @font-face { font-family: "Marcellus"; src: url("/assets/fonts/marcellus-regular.woff2") format("woff2"); font-display: swap; }
+      @font-face { font-family: "Urbanist"; src: url("/assets/fonts/urbanist-medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+      @font-face { font-family: "Urbanist"; src: url("/assets/fonts/urbanist-bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
       :root { color-scheme: dark; }
       * { box-sizing: border-box; }
       body {
-        margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 20px;
-        background: radial-gradient(ellipse at 75% 20%, #1b1b40, transparent 60%), #080b16;
-        color: #f1f0fa; font: 500 16px/1.6 "DM Sans", system-ui, sans-serif; text-align: center;
+        margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 20px; overflow: hidden;
+        background: radial-gradient(70% 55% at 78% 0, #13244a, transparent 70%), #040a18;
+        color: #f7f2e7; font: 500 17px/1.6 "Urbanist", system-ui, sans-serif; text-align: center;
       }
-      main { display: grid; justify-items: center; gap: 18px; max-width: 520px; }
-      svg { width: 44px; height: 44px; color: #b8afff;  }
-      p.code { margin: 6px 0 0; color: #b8afff; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; }
-      h1 { margin: 0; font: 400 clamp(44px, 9vw, 72px)/1 "Libre Caslon Display", Georgia, serif; letter-spacing: -.01em; }
-      p { margin: 0; color: #bdc0d4; }
-      a { margin-top: 14px; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 14px; color: #14122d; background: #b8afff; text-decoration: none; font-weight: 600; }
-      a:focus-visible { outline: 2px solid #4939bf; outline-offset: 3px; }
+      body::before {
+        content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .8;
+        background-image: radial-gradient(1px 1px at 12% 18%, #fff, transparent), radial-gradient(1px 1px at 72% 12%, #fff, transparent), radial-gradient(1.5px 1.5px at 84% 64%, #f3dfb4, transparent), radial-gradient(1px 1px at 28% 76%, #fff, transparent), radial-gradient(1px 1px at 46% 34%, #cdeeff, transparent), radial-gradient(1.2px 1.2px at 62% 86%, #fff, transparent), radial-gradient(1px 1px at 8% 56%, #fff, transparent), radial-gradient(1px 1px at 92% 30%, #fff, transparent);
+      }
+      main { position: relative; display: grid; justify-items: center; gap: 18px; max-width: 540px; }
+      svg { width: 52px; height: 52px; color: #a6e8ff; filter: drop-shadow(0 0 14px rgba(166, 232, 255, .5)); animation: turn 24s linear infinite; }
+      p.code { margin: 8px 0 0; color: #ecd6a8; font-size: 12px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; }
+      h1 { margin: 0; font: 400 clamp(46px, 10vw, 84px)/1 "Marcellus", Georgia, serif; letter-spacing: -.01em; }
+      p { margin: 0; color: rgba(247, 242, 231, .76); }
+      a {
+        position: relative; isolation: isolate; margin-top: 16px; display: inline-flex; align-items: center; min-height: 54px; padding: 0 30px;
+        color: #21170a; font-size: 12.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; text-decoration: none;
+      }
+      a::before {
+        content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(170deg, #f6e7c6, #e3c48d 48%, #c7a267);
+        -webkit-mask: radial-gradient(circle at 0 0, #0000 9px, #000 10px) 0 0/51% 51% no-repeat, radial-gradient(circle at 100% 0, #0000 9px, #000 10px) 100% 0/51% 51% no-repeat, radial-gradient(circle at 0 100%, #0000 9px, #000 10px) 0 100%/51% 51% no-repeat, radial-gradient(circle at 100% 100%, #0000 9px, #000 10px) 100% 100%/51% 51% no-repeat;
+        mask: radial-gradient(circle at 0 0, #0000 9px, #000 10px) 0 0/51% 51% no-repeat, radial-gradient(circle at 100% 0, #0000 9px, #000 10px) 100% 0/51% 51% no-repeat, radial-gradient(circle at 0 100%, #0000 9px, #000 10px) 0 100%/51% 51% no-repeat, radial-gradient(circle at 100% 100%, #0000 9px, #000 10px) 100% 100%/51% 51% no-repeat;
+      }
+      a:hover::before { filter: brightness(1.07); }
+      a:focus-visible { outline: 2px solid #a6e8ff; outline-offset: 4px; }
+      @keyframes turn { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) { svg { animation: none; } }
     </style>
   </head>
   <body>
