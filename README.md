@@ -158,11 +158,13 @@ The website's prologue uses the November 2, 2026 selection: `research-v2`, `conf
 - `shared/art/prologue/`, `shared/art/moonlit-terrace.png`, `shared/art/star-core-laboratory.png` and `shared/art/currencies/`.
 - `chapters/{arrival,first-signal,library-welcome,missing-safeguard}/art/`: Lyth and Khalion locations.
 
-Screenshots were captured from the 0.2.0 build (`apps/game/dist`, demo mode) and from the game's Storybook fixtures:
+Screenshots were captured from the 0.5.0 game (built from source into a scratch folder outside the game repository) in headless Chrome at 1600×900, using saves generated from the game's own save rules so they load like real progress. Tessa and Xaya, who are held back from players, are left out.
 
-- **Battle**: the Crossing Colossus encounter.
-- **Teams**: the full formation.
-- **Shop**: the Star Core laboratory.
+- **Battle**: Pale Plateau, Stage 36, with a threat warning on screen.
+- **Teams**: Team 1 in the painted hall.
+- **Story**: Chapter 2, Episode 2 ("Above the Water") in the reader.
+- **Home**: the moonlit terrace.
+- **Command Site**: the facilities after a few upgrades.
 
 The app icon comes from `apps/game/src-tauri/icons/`.
 
